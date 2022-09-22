@@ -1,7 +1,8 @@
 # Group 4
 
-## Member of group:
+# Project name: SoundCloud (Remastered Edition)
 
+## Member of group:
 Nguyen Vinh Quang<br>
 Nguyen Duc Tuan<br>
 Nguyen Hong Quan<br>
