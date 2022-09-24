@@ -10,6 +10,13 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text('Search')),
+      ),
+      body: const Center(
+        child: Text('Tracks'),
+      ),
+    );
   }
 }

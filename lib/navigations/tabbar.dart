@@ -34,7 +34,7 @@ class _TabbarState extends State<Tabbar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.electric_bolt),
-              label: "Stream",
+              label: "Tracks",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search_outlined),
@@ -57,9 +57,8 @@ class _TabbarState extends State<Tabbar> {
             RenderView(2, SearchView()),
             RenderView(3, LibraryView()),
             RenderView(4, ProfileView()),
-              ],
-        )
-        );
+          ],
+        ));
   }
 
   Widget RenderView(int _tabIndex, Widget view) {

@@ -10,6 +10,13 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text('Profile')),
+      ),
+      body: const Center(
+        child: Text('Tracks'),
+      ),
+    );
   }
 }
