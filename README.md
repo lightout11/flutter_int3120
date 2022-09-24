@@ -19,10 +19,19 @@
 ## Clone the project:
 > git clone https://github.com/lightout11/learnflutter.git
 
-## Create the environment or device that fit with your drive
-> flutter create .
+## Checkout branch:
+> git checkout -b {your_branch_name}
+
 *or*
+
+> git checkout {your_branch_name}
+
+## Create the environment or device that fit with your drive:
+> flutter create .
+
+*or*
+
 > flutter create {your device}
 
-## Run the app
+## Run the app:
 >flutter run lib/main.dart
