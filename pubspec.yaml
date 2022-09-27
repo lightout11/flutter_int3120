@@ -53,6 +53,13 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  fonts:
+    - family: Interstate
+      fonts:
+        - asset: fonts/Interstate-regular.ttf
+        - asset: fonts/Interstate-light.ttf
+        - asset: fonts/Interstate-bold.ttf
+          weight: 700
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
