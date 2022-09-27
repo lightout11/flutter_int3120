@@ -12,11 +12,12 @@ class _SearchViewState extends State<SearchView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Search')),
-      ),
-      body: const Center(
-        child: Text('Tracks'),
-      ),
+          title: const Text('Search',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black, fontFamily: 'Interstate')),
+          backgroundColor: Colors.white,
+          centerTitle: true,
+        ),
     );
   }
 }
