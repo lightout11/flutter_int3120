@@ -34,7 +34,7 @@ class _TabbarState extends State<Tabbar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.electric_bolt),
-              label: "Tracks",
+              label: "Stream",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search_outlined),
