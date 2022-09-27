@@ -28,16 +28,12 @@ class _HomeViewState extends State<HomeView> {
                     color: Colors.grey[600], size: 30)),
           ],
         ),
-        body: Stack(
-          children: [
-            Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.red,
-          ),
+        body:
             SingleChildScrollView(
             child: Column(
-              children: [Container(
+              children: [
+                // Album list 1
+                Container(
                 //backgroundColor: Colors.green,
                 color: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -120,6 +116,13 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
               Container(
+                  width: double.infinity,
+                  height: 15,
+                  color: Colors.grey[300],
+                ),
+
+              // Album list 2
+              Container(
                 //backgroundColor: Colors.green,
                 color: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -193,7 +196,8 @@ class _HomeViewState extends State<HomeView> {
                   ],
                 ),
               ),
-          
+
+              // Album list 3
               Container(
                 //backgroundColor: Colors.green,
                 color: Colors.white,
@@ -268,7 +272,8 @@ class _HomeViewState extends State<HomeView> {
                   ],
                 ),
               ),
-          
+
+              // Album list 4
               Container(
                 //backgroundColor: Colors.green,
                 color: Colors.white,
@@ -345,9 +350,8 @@ class _HomeViewState extends State<HomeView> {
               ),
               ] 
             ),
-          ),] 
-        ),
-        
-        );
+          ),
+        )
+        ;
   }
 }
