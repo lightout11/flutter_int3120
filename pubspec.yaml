@@ -59,7 +59,7 @@ flutter:
         - asset: fonts/Interstate-regular.ttf
         - asset: fonts/Interstate-light.ttf
         - asset: fonts/Interstate-bold.ttf
-          weight: 700
+          style: italic
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
