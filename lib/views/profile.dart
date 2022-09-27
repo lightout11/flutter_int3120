@@ -12,11 +12,12 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Profile')),
-      ),
-      body: const Center(
-        child: Text('Tracks'),
-      ),
+          title: const Text('Profile',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black, fontFamily: 'Interstate')),
+          backgroundColor: Colors.white,
+          centerTitle: true,
+        ),
     );
   }
 }
