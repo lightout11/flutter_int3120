@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../views/home.dart';
-import '../views/library.dart';
-import '../views/user.dart';
-import '../views/search.dart';
-import '../views/stream_music.dart';
+import '../views/homePage/home.dart';
+import '../views/libraryPage/library.dart';
+import '../views/userPage/user.dart';
+import '../views/searchPage/search.dart';
+import '../views/streamPage/stream_music.dart';
 
 class Tabbar extends StatefulWidget {
   const Tabbar({super.key});
@@ -22,7 +22,7 @@ class _TabbarState extends State<Tabbar> {
           currentIndex: _selectedTab,
           onTap: (index) {
             setState(() {
-              this._selectedTab = index;
+              _selectedTab = index;
             });
           },
           items: const [
@@ -59,11 +59,11 @@ class _TabbarState extends State<Tabbar> {
         ));
   }
 
-  Widget RenderView(int _tabIndex, Widget view) {
+  Widget RenderView(int tabIndex, Widget view) {
     return IgnorePointer(
-        ignoring: _selectedTab != _tabIndex,
+        ignoring: _selectedTab != tabIndex,
         child: Opacity(
-          opacity: _selectedTab == _tabIndex ? 1 : 0,
+          opacity: _selectedTab == tabIndex ? 1 : 0,
           child: view,
         ));
   }
