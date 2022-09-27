@@ -12,11 +12,12 @@ class _StreamMusicViewState extends State<StreamMusicView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Tracks')),
-      ),
-      body: const Center(
-        child: Text('Tracks'),
-      ),
+          title: const Text('Stream',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black, fontFamily: 'Interstate')),
+          backgroundColor: Colors.white,
+          centerTitle: true,
+        ),
     );
   }
 }
