@@ -12,11 +12,12 @@ class _LibraryViewState extends State<LibraryView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Library')),
-      ),
-      body: const Center(
-        child: Text('Tracks'),
-      ),
+          title: const Text('Library',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black, fontFamily: 'Interstate')),
+          backgroundColor: Colors.white,
+          centerTitle: true,
+        ),
     );
   }
 }
