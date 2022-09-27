@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import '../views/albums_view.dart';
 import '../views/home.dart';
 import '../views/library.dart';
-import '../views/profile.dart';
+import '../views/user.dart';
 import '../views/search.dart';
 import '../views/stream_music.dart';
 
@@ -27,7 +25,7 @@ class _TabbarState extends State<Tabbar> {
               this._selectedTab = index;
             });
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Home",
@@ -52,11 +50,11 @@ class _TabbarState extends State<Tabbar> {
         ),
         body: Stack(
           children: [
-            RenderView(0, HomeView()),
-            RenderView(1, StreamMusicView()),
-            RenderView(2, SearchView()),
-            RenderView(3, LibraryView()),
-            RenderView(4, ProfileView()),
+            RenderView(0, const HomeView()),
+            RenderView(1, const StreamMusicView()),
+            RenderView(2, const SearchView()),
+            RenderView(3, const LibraryView()),
+            RenderView(4, const UserView()),
           ],
         ));
   }

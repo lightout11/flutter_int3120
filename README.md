@@ -16,6 +16,8 @@
 
 # Run the Project:
 
+## Note when using Git
+*Please Pull code before coding, especially pushing code to Git!*
 ## Clone the project:
 > git clone https://github.com/lightout11/learnflutter.git
 
