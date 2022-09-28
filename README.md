@@ -18,6 +18,15 @@
 
 ## Note when using Git
 *Please Pull code before coding, especially pushing code to Git!*
+> git clone
+> git checkout
+> fix
+> git add .
+> git commit -m "message"
+> git pull origin master
+> git push origin {branch}
+> Go to the web and compare (pull request) from branch to master
+
 ## Clone the project:
 > git clone https://github.com/lightout11/learnflutter.git
 
