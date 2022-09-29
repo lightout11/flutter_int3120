@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/widgets/album_card.dart';
 import '../albumPage/album_view.dart';
+import 'package:learnflutter/widgets/user_card.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -217,138 +218,57 @@ class _HomeViewState extends State<HomeView> {
                   child: Row(
                     children: [
                       Container(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(bottom: 5),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.grey,
-                                radius: 61,
-                                child: CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('assets/mck_avatar.PNG'),
-                                  radius: 60,
-                                ),
-                              ),
-                            ),
-                            Container(
-                                padding: EdgeInsets.all(3),
-                                child: Text('MCK',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16))),
-                            ElevatedButton(
-                                onPressed: () {},
-                                child: Text('Follow',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 14)),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.orange[900],
-                                )),
-                          ],
-                        ),
-                      ),
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              UserCard(
+                                  image: AssetImage('assets/mck_avatar.PNG'),
+                                  userName: 'MCK'),
+                              ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text('Follow',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 14)),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.orange[900],
+                                  )),
+                            ],
+                          )),
+                      Container(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              UserCard(
+                                  image: AssetImage('assets/tlinh_avatar.PNG'),
+                                  userName: 'Tlinh'),
+                              ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text('Follow',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 14)),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.orange[900],
+                                  )),
+                            ],
+                          )),
 
-                      //Artist 2
                       Container(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(bottom: 5),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.grey,
-                                radius: 61,
-                                child: CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('assets/tyga_avatar.PNG'),
-                                  radius: 60,
-                                ),
-                              ),
-                            ),
-                            Container(
-                                padding: EdgeInsets.all(3),
-                                child: Text('Tyga',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16))),
-                            ElevatedButton(
-                                onPressed: () {},
-                                child: Text('Follow',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 14)),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.orange[900],
-                                )),
-                          ],
-                        ),
-                      ),
-
-                      // Artist 3
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(bottom: 5),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.grey,
-                                radius: 61,
-                                child: CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('assets/tlinh_avatar.PNG'),
-                                  radius: 60,
-                                ),
-                              ),
-                            ),
-                            Container(
-                                padding: EdgeInsets.all(3),
-                                child: Text('Tlinh',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16))),
-                            ElevatedButton(
-                                onPressed: () {},
-                                child: Text('Follow',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 14)),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.orange[900],
-                                )),
-                          ],
-                        ),
-                      ),
-                      //Artist 4
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(bottom: 5),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.grey,
-                                radius: 61,
-                                child: CircleAvatar(
-                                  backgroundImage:
-                                      AssetImage('assets/denvau_avatar.PNG'),
-                                  radius: 60,
-                                ),
-                              ),
-                            ),
-                            Container(
-                                padding: EdgeInsets.all(3),
-                                child: Text('denvau',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 16))),
-                            ElevatedButton(
-                                onPressed: () {},
-                                child: Text('Follow',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 14)),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.orange[900],
-                                )),
-                          ],
-                        ),
-                      ),
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              UserCard(
+                                  image: AssetImage('assets/tyga_avatar.PNG'),
+                                  userName: 'Tyga'),
+                              ElevatedButton(
+                                  onPressed: () {},
+                                  child: Text('Follow',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 14)),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.orange[900],
+                                  )),
+                            ],
+                          )),
                     ],
                   ),
                 ),
