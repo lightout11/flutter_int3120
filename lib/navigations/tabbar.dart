@@ -4,6 +4,7 @@ import '../views/libraryPage/library.dart';
 import '../views/userPage/user.dart';
 import '../views/searchPage/search.dart';
 import '../views/streamPage/stream_music.dart';
+import '../views/profilePage/profile_view.dart';
 
 class Tabbar extends StatefulWidget {
   const Tabbar({super.key});
@@ -54,7 +55,7 @@ class _TabbarState extends State<Tabbar> {
             RenderView(1, const StreamMusicView()),
             RenderView(2, const SearchView()),
             RenderView(3, const LibraryView()),
-            RenderView(4, const UserView()),
+            RenderView(4, const ProfileView()),
           ],
         ));
   }
