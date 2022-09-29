@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class UserView extends StatefulWidget {
-  const UserView({super.key});
+  final ImageProvider? image;
+  const UserView({super.key, this.image});
 
   @override
   State<UserView> createState() => _UserViewState();
@@ -12,7 +13,11 @@ class _UserViewState extends State<UserView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile',
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        title: const Text('User Profile',
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.black, fontFamily: 'Interstate')),
         backgroundColor: Colors.white,
