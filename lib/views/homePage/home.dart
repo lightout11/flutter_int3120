@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learnflutter/widgets/album_card.dart';
 import '../albumPage/album_view.dart';
 import 'package:learnflutter/widgets/user_card.dart';
+import '../notificationPage/notification_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -26,7 +27,13 @@ class _HomeViewState extends State<HomeView> {
               icon: Icon(Icons.upload_rounded,
                   color: Colors.grey[600], size: 30)),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NotificationView(),
+                    ));
+              },
               icon: Icon(Icons.notifications_outlined,
                   color: Colors.grey[600], size: 30)),
         ],
@@ -217,6 +224,7 @@ class _HomeViewState extends State<HomeView> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
+                      //Artist 1
                       Container(
                           padding: EdgeInsets.all(10),
                           child: Column(
@@ -224,34 +232,9 @@ class _HomeViewState extends State<HomeView> {
                               UserCard(
                                   image: AssetImage('assets/mck_avatar.PNG'),
                                   userName: 'MCK'),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text('Follow',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 14)),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.orange[900],
-                                  )),
                             ],
                           )),
-                      Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            children: [
-                              UserCard(
-                                  image: AssetImage('assets/tlinh_avatar.PNG'),
-                                  userName: 'Tlinh'),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text('Follow',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 14)),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.orange[900],
-                                  )),
-                            ],
-                          )),
-
+                      //Artist 2
                       Container(
                           padding: EdgeInsets.all(10),
                           child: Column(
@@ -259,14 +242,26 @@ class _HomeViewState extends State<HomeView> {
                               UserCard(
                                   image: AssetImage('assets/tyga_avatar.PNG'),
                                   userName: 'Tyga'),
-                              ElevatedButton(
-                                  onPressed: () {},
-                                  child: Text('Follow',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 14)),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.orange[900],
-                                  )),
+                            ],
+                          )),
+                      //Artist 3
+                      Container(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              UserCard(
+                                  image: AssetImage('assets/tlinh_avatar.PNG'),
+                                  userName: 'Tlinh'),
+                            ],
+                          )),
+                      //Artist 4
+                      Container(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              UserCard(
+                                  image: AssetImage('assets/denvau_avatar.PNG'),
+                                  userName: 'denvau'),
                             ],
                           )),
                     ],
