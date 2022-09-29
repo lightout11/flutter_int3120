@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/widgets/album_card.dart';
+import '../albumPage/album_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -61,108 +63,40 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
+                  child: Container(
+                    padding: EdgeInsets.only(right: 5),
+                    child: Row(
+                      children: [
+                        AlbumCard(
+                            image: AssetImage('assets/album1.jpg'),
+                            albumName: 'A\$ap Rocky Album',
+                            albumNote: 'Related Tracks',
+                            onTap: (_) {},
                             width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album1.jpg')),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
+                            height: 180),
+                        AlbumCard(
+                            image: AssetImage('assets/album1.jpg'),
+                            albumName: 'A\$ap Rocky Album',
+                            albumNote: 'Related Tracks',
+                            onTap: (_) {},
                             width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album2.jpg')),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
+                            height: 180),
+                        AlbumCard(
+                            image: AssetImage('assets/album1.jpg'),
+                            albumName: 'A\$ap Rocky Album',
+                            albumNote: 'Related Tracks',
+                            onTap: (_) {},
                             width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album3.jpg')),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            height: 180),
+                        AlbumCard(
+                            image: AssetImage('assets/album1.jpg'),
+                            albumName: 'A\$ap Rocky Album',
+                            albumNote: 'Related Tracks',
+                            onTap: (_) {},
+                            width: 140,
+                            height: 180),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -174,347 +108,71 @@ class _HomeViewState extends State<HomeView> {
             color: Colors.grey[300],
           ),
 
-          // Album list 2
-          Container(
-            color: Colors.white,
-            padding: EdgeInsets.only(top: 20, left: 10, right: 0, bottom: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 10),
-                  child: Text(
-                    'Recently Played',
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.black87,
-                      fontFamily: 'Interstate',
+          //Album list 2
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AlbumView(
+                    image: AssetImage('assets/badtrip_album.jpg'),
+                  ),
+                ),
+              );
+            },
+            child: Container(
+              color: Colors.white,
+              padding:
+                  EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 5, bottom: 5),
+                    child: Text(
+                      'SoundCloud Weekly',
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black87,
+                        fontFamily: 'Interstate',
+                      ),
                     ),
                   ),
-                ),
-                // Container(
-                //   padding:EdgeInsets.only(left: 5, bottom: 5),
-                //   child: Text(
-                //     'Suggestions based on what you\'ve liked or played',
-                //     style: TextStyle(
-                //       fontSize: 15,
-                //       color: Colors.grey[600],
-                //       fontFamily: 'Interstate',
-                //     ),
-                //   ),
-                // ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
-                            width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album4.jpg')),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                  Container(
+                    padding: EdgeInsets.only(left: 5, bottom: 5),
+                    child: Text(
+                      'All of SoundCloud. Just for you.',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.grey[600],
+                        fontFamily: 'Interstate',
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
-                            width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album5.jpg')),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
-                            width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album6.jpg')),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 20,
-            color: Colors.grey[300],
-          ),
-
-          // Album 3
-          Container(
-            color: Colors.white,
-            padding: EdgeInsets.only(top: 20, left: 10, right: 0, bottom: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
-                    'Charts: New & hot',
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.black87,
-                      fontFamily: 'Interstate',
                     ),
                   ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
-                    'Up-and-comming tracks on SoundCloud',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.grey[600],
-                      fontFamily: 'Interstate',
+                  SizedBox(
+                      width: double.infinity,
+                      height: 200,
+                      child: Card(
+                        child: Image(
+                            image: AssetImage('assets/badtrip_album.jpg'),
+                            fit: BoxFit.fill),
+                      )),
+                  Container(
+                    padding: EdgeInsets.only(top: 10, bottom: 5, left: 5),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage('assets/user_avatar.jpg'),
+                          radius: 15,
+                        ),
+                        SizedBox(width: 5),
+                        Text('Based on your listening history',
+                            style: TextStyle(color: Colors.grey)),
+                      ],
                     ),
                   ),
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
-                            width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album7.jpg')),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
-                            width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album8.jpg'),
-                                      fit: BoxFit.fill),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 180,
-                            width: 140,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Card(
-                                  child: Image(
-                                      image: AssetImage('assets/album9.jpg')),
-                                ),
-                                SizedBox(height: 5),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'A\$ap Rocky Album',
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(left: 5),
-                                  child: Text(
-                                    'Related Tracks',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 20,
-            color: Colors.grey[300],
-          ),
-
-          //Album list 4
-          Container(
-            color: Colors.white,
-            padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
-                    'SoundCloud Weekly',
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.black87,
-                      fontFamily: 'Interstate',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
-                    'All of SoundCloud. Just for you.',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.grey[600],
-                      fontFamily: 'Interstate',
-                    ),
-                  ),
-                ),
-                SizedBox(
-                    width: double.infinity,
-                    height: 200,
-                    child: Card(
-                      child: Image(
-                          image: AssetImage('assets/badtrip_album.jpg'),
-                          fit: BoxFit.fill),
-                    )),
-                Container(
-                  padding: EdgeInsets.only(top: 10, bottom: 5, left: 5),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: AssetImage('assets/user_avatar.jpg'),
-                        radius: 15,
-                      ),
-                      SizedBox(width: 5),
-                      Text('Based on your listening history',
-                          style: TextStyle(color: Colors.grey)),
-                    ],
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(
@@ -568,7 +226,8 @@ class _HomeViewState extends State<HomeView> {
                                 backgroundColor: Colors.grey,
                                 radius: 61,
                                 child: CircleAvatar(
-                                  backgroundImage: AssetImage('assets/mck_avatar.PNG'),
+                                  backgroundImage:
+                                      AssetImage('assets/mck_avatar.PNG'),
                                   radius: 60,
                                 ),
                               ),
@@ -576,13 +235,13 @@ class _HomeViewState extends State<HomeView> {
                             Container(
                                 padding: EdgeInsets.all(3),
                                 child: Text('MCK',
-                                    style:
-                                        TextStyle(color: Colors.black, fontSize: 16))),
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16))),
                             ElevatedButton(
                                 onPressed: () {},
                                 child: Text('Follow',
-                                    style:
-                                        TextStyle(color: Colors.white, fontSize: 14)),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 14)),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.orange[900],
                                 )),
@@ -601,7 +260,8 @@ class _HomeViewState extends State<HomeView> {
                                 backgroundColor: Colors.grey,
                                 radius: 61,
                                 child: CircleAvatar(
-                                  backgroundImage: AssetImage('assets/tyga_avatar.PNG'),
+                                  backgroundImage:
+                                      AssetImage('assets/tyga_avatar.PNG'),
                                   radius: 60,
                                 ),
                               ),
@@ -609,13 +269,13 @@ class _HomeViewState extends State<HomeView> {
                             Container(
                                 padding: EdgeInsets.all(3),
                                 child: Text('Tyga',
-                                    style:
-                                        TextStyle(color: Colors.black, fontSize: 16))),
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16))),
                             ElevatedButton(
                                 onPressed: () {},
                                 child: Text('Follow',
-                                    style:
-                                        TextStyle(color: Colors.white, fontSize: 14)),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 14)),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.orange[900],
                                 )),
@@ -634,7 +294,8 @@ class _HomeViewState extends State<HomeView> {
                                 backgroundColor: Colors.grey,
                                 radius: 61,
                                 child: CircleAvatar(
-                                  backgroundImage: AssetImage('assets/tlinh_avatar.PNG'),
+                                  backgroundImage:
+                                      AssetImage('assets/tlinh_avatar.PNG'),
                                   radius: 60,
                                 ),
                               ),
@@ -642,13 +303,13 @@ class _HomeViewState extends State<HomeView> {
                             Container(
                                 padding: EdgeInsets.all(3),
                                 child: Text('Tlinh',
-                                    style:
-                                        TextStyle(color: Colors.black, fontSize: 16))),
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16))),
                             ElevatedButton(
                                 onPressed: () {},
                                 child: Text('Follow',
-                                    style:
-                                        TextStyle(color: Colors.white, fontSize: 14)),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 14)),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.orange[900],
                                 )),
@@ -666,7 +327,8 @@ class _HomeViewState extends State<HomeView> {
                                 backgroundColor: Colors.grey,
                                 radius: 61,
                                 child: CircleAvatar(
-                                  backgroundImage: AssetImage('assets/denvau_avatar.PNG'),
+                                  backgroundImage:
+                                      AssetImage('assets/denvau_avatar.PNG'),
                                   radius: 60,
                                 ),
                               ),
@@ -674,13 +336,13 @@ class _HomeViewState extends State<HomeView> {
                             Container(
                                 padding: EdgeInsets.all(3),
                                 child: Text('denvau',
-                                    style:
-                                        TextStyle(color: Colors.black, fontSize: 16))),
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16))),
                             ElevatedButton(
                                 onPressed: () {},
                                 child: Text('Follow',
-                                    style:
-                                        TextStyle(color: Colors.white, fontSize: 14)),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 14)),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.orange[900],
                                 )),
@@ -690,7 +352,6 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                 ),
-
               ],
             ),
           ),
