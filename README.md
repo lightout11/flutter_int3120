@@ -12,8 +12,6 @@
 *image*
 ![image](https://user-images.githubusercontent.com/62581840/190585967-b3d588fb-f833-4b38-a78f-91b7c8ccfb34.png)
 *gif*
-![gif](img/ezgif.com-gif-maker.gif)
-
 ![week4_hw](https://user-images.githubusercontent.com/64391055/193211759-39efe6db-58ca-464d-8cbe-1ed8e0437222.gif)
 
 # Run the Project:
