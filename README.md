@@ -14,7 +14,6 @@
 *gif*
 ![gif](img/ezgif.com-gif-maker.gif)
 
-![Week4](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 ![week4_hw](https://user-images.githubusercontent.com/64391055/193211759-39efe6db-58ca-464d-8cbe-1ed8e0437222.gif)
 
 # Run the Project:
