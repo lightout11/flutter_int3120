@@ -36,13 +36,14 @@ class _HomeViewState extends State<HomeView> {
           // Album list 1
           Container(
             color: Colors.white,
-            padding: EdgeInsets.only(top: 20, left: 10, right: 0, bottom: 10),
+            padding:
+                const EdgeInsets.only(top: 20, left: 10, right: 0, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
+                  child: const Text(
                     'More of what you like',
                     style: TextStyle(
                       fontSize: 25,
@@ -52,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
                   child: Text(
                     'Suggestions based on what you\'ve liked or played',
                     style: TextStyle(
@@ -235,10 +236,10 @@ class _HomeViewState extends State<HomeView> {
                             ],
                           )),
                       Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
-                              UserCard(
+                              const UserCard(
                                   image: AssetImage('assets/tlinh_avatar.PNG'),
                                   userName: 'Tlinh'),
                               ElevatedButton(
@@ -251,7 +252,6 @@ class _HomeViewState extends State<HomeView> {
                                   )),
                             ],
                           )),
-
                       Container(
                           padding: EdgeInsets.all(10),
                           child: Column(

@@ -1,14 +1,13 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import '../views/userPage/user.dart';
+import '../views/profilePage/profile.dart';
 
 class UserCard extends StatelessWidget {
   final ImageProvider? image;
   final String? userName;
+  final int? id;
   final Function? onTap;
 
-  const UserCard({super.key, this.image, this.userName, this.onTap});
+  const UserCard({super.key, this.image, this.userName, this.onTap, this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +16,9 @@ class UserCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => UserView(
+            builder: (context) => ProfileView(
               image: image,
+              id: id,
             ),
           ),
         );
@@ -26,7 +26,7 @@ class UserCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(bottom: 5),
+            padding: const EdgeInsets.only(bottom: 5),
             child: CircleAvatar(
               backgroundColor: Colors.grey,
               radius: 61,
