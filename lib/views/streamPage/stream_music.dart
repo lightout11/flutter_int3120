@@ -26,21 +26,21 @@ class _StreamMusicViewState extends State<StreamMusicView> {
             Column(
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             backgroundImage:
                                 AssetImage('assets/denvau_avatar.PNG'),
                           ),
                           Container(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Text('denvau posted a track',
                                     style: TextStyle(color: Colors.black)),
                                 Text('15 days ago',
@@ -51,7 +51,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                         ],
                       ),
                       Stack(children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 200,
                           width: double.infinity,
                           child: Card(
@@ -63,14 +63,14 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                         ),
                         Container(
                           margin:
-                              EdgeInsets.only(top: 20, bottom: 10, left: 15),
+                              const EdgeInsets.only(top: 20, bottom: 10, left: 15),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 color: Colors.black,
                                 height: 20,
-                                child: Text(
+                                child: const Text(
                                   'denvau',
                                   style: TextStyle(color: Colors.grey),
                                 ),
@@ -78,7 +78,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                               Container(
                                 color: Colors.black,
                                 height: 20,
-                                child: Text(
+                                child: const Text(
                                   'Đen - Diễn viên tồi ft. Thành Bùi, Cadilac',
                                   style: TextStyle(color: Colors.white),
                                 ),
@@ -88,7 +88,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                         )
                       ]),
                       Row(
-                        children: [
+                        children: const [
                           Icon(Icons.play_arrow_rounded, color: Colors.grey),
                           Text('300,303  ·  5:49',
                               style: TextStyle(color: Colors.grey)),
@@ -100,7 +100,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                         ],
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: 5, bottom: 5, left: 5),
+                        padding: const EdgeInsets.only(top: 5, bottom: 5, left: 5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -110,37 +110,36 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                                   children: [
                                     GestureDetector(
                                         onTap: () {},
-                                        child: Icon(
+                                        child: const Icon(
                                             Icons.favorite_border_rounded, color: Colors.grey,)),
-                                    SizedBox(width: 5),
+                                    const SizedBox(width: 5),
                                     Text(
                                       '4,771',
                                       style: TextStyle(color: Colors.grey[600]),
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 25),
+                                const SizedBox(width: 25),
                                 Row(
                                   children: [
                                     GestureDetector(
+                                      onTap: (() {
+                                      }),
                                       child: Transform(
                                         alignment: Alignment.center,
                                         transform: Matrix4.rotationY(math.pi),
                                         child: Icon(Icons.comment_outlined,
                                             color: Colors.grey[600]),
                                       ),
-                                      onTap: (() {
-                                        print('comment');
-                                      }),
                                     ),
-                                    SizedBox(width: 5),
+                                    const SizedBox(width: 5),
                                     Text(
                                       '77',
                                       style: TextStyle(color: Colors.grey[600]),
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 25),
+                                const SizedBox(width: 25),
                                 Row(
                                   children: [
                                     GestureDetector(
@@ -149,7 +148,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                                           Icons.cloud_download_outlined,
                                           color: Colors.grey[600],
                                         )),
-                                        SizedBox(width: 5),
+                                        const SizedBox(width: 5),
                                     Text(
                                       '77',
                                       style: TextStyle(color: Colors.grey[600]),
@@ -180,21 +179,21 @@ class _StreamMusicViewState extends State<StreamMusicView> {
             Column(
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             backgroundImage:
                                 AssetImage('assets/tyga_avatar.PNG'),
                           ),
                           Container(
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Text('Tyga posted a track',
                                     style: TextStyle(color: Colors.black)),
                                 Text('26 days ago',
@@ -205,7 +204,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                         ],
                       ),
                       Stack(children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 200,
                           width: double.infinity,
                           child: Card(
@@ -217,14 +216,14 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                         ),
                         Container(
                           margin:
-                              EdgeInsets.only(top: 20, bottom: 10, left: 15),
+                              const EdgeInsets.only(top: 20, bottom: 10, left: 15),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 color: Colors.black,
                                 height: 20,
-                                child: Text(
+                                child: const Text(
                                   'Tyga',
                                   style: TextStyle(color: Colors.grey),
                                 ),
@@ -232,7 +231,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                               Container(
                                 color: Colors.black,
                                 height: 20,
-                                child: Text(
+                                child: const Text(
                                   'Tyga - Fanstatic',
                                   style: TextStyle(color: Colors.white),
                                 ),
@@ -242,7 +241,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                         )
                       ]),
                       Row(
-                        children: [
+                        children: const [
                           Icon(Icons.play_arrow_rounded, color: Colors.grey),
                           Text('86,969  ·  2:52',
                               style: TextStyle(color: Colors.grey)),
@@ -254,7 +253,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                         ],
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: 5, bottom: 5, left: 5),
+                        padding: const EdgeInsets.only(top: 5, bottom: 5, left: 5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -264,37 +263,36 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                                   children: [
                                     GestureDetector(
                                         onTap: () {},
-                                        child: Icon(
+                                        child: const Icon(
                                             Icons.favorite_border_rounded, color: Colors.grey,)),
-                                    SizedBox(width: 5),
+                                    const SizedBox(width: 5),
                                     Text(
                                       '3,189',
                                       style: TextStyle(color: Colors.grey[600]),
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 25),
+                                const SizedBox(width: 25),
                                 Row(
                                   children: [
                                     GestureDetector(
+                                      onTap: (() {
+                                      }),
                                       child: Transform(
                                         alignment: Alignment.center,
                                         transform: Matrix4.rotationY(math.pi),
                                         child: Icon(Icons.comment_outlined,
                                             color: Colors.grey[600]),
                                       ),
-                                      onTap: (() {
-                                        print('comment');
-                                      }),
                                     ),
-                                    SizedBox(width: 5),
+                                    const SizedBox(width: 5),
                                     Text(
                                       '93',
                                       style: TextStyle(color: Colors.grey[600]),
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 25),
+                                const SizedBox(width: 25),
                                 Row(
                                   children: [
                                     GestureDetector(
@@ -303,7 +301,7 @@ class _StreamMusicViewState extends State<StreamMusicView> {
                                           Icons.cloud_download_outlined,
                                           color: Colors.grey[600],
                                         )),
-                                        SizedBox(width: 5),
+                                        const SizedBox(width: 5),
                                     Text(
                                       '108',
                                       style: TextStyle(color: Colors.grey[600]),

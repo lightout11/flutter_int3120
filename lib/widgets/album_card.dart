@@ -1,6 +1,3 @@
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import "package:flutter/material.dart";
 import '../views/albumPage/album_view.dart';
 
@@ -44,23 +41,23 @@ class AlbumCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only(right: 5, bottom: 5),
+                  padding: const EdgeInsets.only(right: 5, bottom: 5),
                   child: Card(
                     child: Image(image: image!),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 5, right: 5, bottom: 5),
+                  padding: const EdgeInsets.only(left: 5, right: 5, bottom: 5),
                   child: Text(
                     albumName!,
-                    style: TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.black),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 5, right: 5),
+                  padding: const EdgeInsets.only(left: 5, right: 5),
                   child: Text(
                     albumNote!,
-                    style: TextStyle(color: Colors.grey),
+                    style: const TextStyle(color: Colors.grey),
                   ),
                 ),
               ],
