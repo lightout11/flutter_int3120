@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './navigations/tabbar.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
       darkTheme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         brightness: Brightness.dark,
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.black,
           type: BottomNavigationBarType.fixed,
           selectedLabelStyle: TextStyle(
@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
           unselectedItemColor: Colors.white38,
           ),
       ),
-      home: Tabbar(),
+      home: const Tabbar(),
     );
   }
 }

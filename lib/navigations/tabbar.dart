@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../views/homePage/home.dart';
 import '../views/libraryPage/library.dart';
-import '../views/userPage/user.dart';
 import '../views/searchPage/search.dart';
 import '../views/streamPage/stream_music.dart';
 import '../views/profilePage/profile_view.dart';
@@ -51,16 +50,16 @@ class _TabbarState extends State<Tabbar> {
         ),
         body: Stack(
           children: [
-            RenderView(0, const HomeView()),
-            RenderView(1, const StreamMusicView()),
-            RenderView(2, const SearchView()),
-            RenderView(3, const LibraryView()),
-            RenderView(4, const ProfileView()),
+            renderView(0, const HomeView()),
+            renderView(1, const StreamMusicView()),
+            renderView(2, const SearchView()),
+            renderView(3, const LibraryView()),
+            renderView(4, const ProfileView()),
           ],
         ));
   }
 
-  Widget RenderView(int tabIndex, Widget view) {
+  Widget renderView(int tabIndex, Widget view) {
     return IgnorePointer(
         ignoring: _selectedTab != tabIndex,
         child: Opacity(

@@ -43,13 +43,13 @@ class _HomeViewState extends State<HomeView> {
           // Album list 1
           Container(
             color: Colors.white,
-            padding: EdgeInsets.only(top: 20, left: 10, right: 0, bottom: 10),
+            padding: const EdgeInsets.only(top: 20, left: 10, right: 0, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
+                  child: const Text(
                     'More of what you like',
                     style: TextStyle(
                       fontSize: 25,
@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
                   child: Text(
                     'Suggestions based on what you\'ve liked or played',
                     style: TextStyle(
@@ -72,32 +72,32 @@ class _HomeViewState extends State<HomeView> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
-                    padding: EdgeInsets.only(right: 5),
+                    padding: const EdgeInsets.only(right: 5),
                     child: Row(
                       children: [
                         AlbumCard(
-                            image: AssetImage('assets/album1.jpg'),
+                            image: const AssetImage('assets/album1.jpg'),
                             albumName: 'A\$ap Rocky',
                             albumNote: 'Related Tracks',
                             onTap: (_) {},
                             width: 140,
                             height: 180),
                         AlbumCard(
-                            image: AssetImage('assets/album5.jpg'),
+                            image: const AssetImage('assets/album5.jpg'),
                             albumName: 'Silence',
                             albumNote: 'Related Tracks',
                             onTap: (_) {},
                             width: 140,
                             height: 180),
                         AlbumCard(
-                            image: AssetImage('assets/album3.jpg'),
+                            image: const AssetImage('assets/album3.jpg'),
                             albumName: 'Brainwash',
                             albumNote: 'Related Tracks',
                             onTap: (_) {},
                             width: 140,
                             height: 180),
                         AlbumCard(
-                            image: AssetImage('assets/album4.jpg'),
+                            image: const AssetImage('assets/album4.jpg'),
                             albumName: 'Ophella',
                             albumNote: 'Related Tracks',
                             onTap: (_) {},
@@ -122,7 +122,7 @@ class _HomeViewState extends State<HomeView> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AlbumView(
+                  builder: (context) => const AlbumView(
                     image: AssetImage('assets/badtrip_album.jpg'),
                   ),
                 ),
@@ -131,13 +131,13 @@ class _HomeViewState extends State<HomeView> {
             child: Container(
               color: Colors.white,
               padding:
-                  EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+                  const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 5, bottom: 5),
-                    child: Text(
+                    padding: const EdgeInsets.only(left: 5, bottom: 5),
+                    child: const Text(
                       'SoundCloud Weekly',
                       style: TextStyle(
                         fontSize: 25,
@@ -147,7 +147,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 5, bottom: 5),
+                    padding: const EdgeInsets.only(left: 5, bottom: 5),
                     child: Text(
                       'All of SoundCloud. Just for you.',
                       style: TextStyle(
@@ -157,7 +157,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                       width: double.infinity,
                       height: 200,
                       child: Card(
@@ -166,9 +166,9 @@ class _HomeViewState extends State<HomeView> {
                             fit: BoxFit.fill),
                       )),
                   Container(
-                    padding: EdgeInsets.only(top: 10, bottom: 5, left: 5),
+                    padding: const EdgeInsets.only(top: 10, bottom: 5, left: 5),
                     child: Row(
-                      children: [
+                      children: const [
                         CircleAvatar(
                           backgroundImage: AssetImage('assets/user_avatar.jpg'),
                           radius: 15,
@@ -192,13 +192,13 @@ class _HomeViewState extends State<HomeView> {
           //Artist you should follow
           Container(
             color: Colors.white,
-            padding: EdgeInsets.only(top: 20, left: 5, right: 0, bottom: 10),
+            padding: const EdgeInsets.only(top: 20, left: 5, right: 0, bottom: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
-                  child: Text(
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
+                  child: const Text(
                     'Artists You Should Follow',
                     style: TextStyle(
                       fontSize: 25,
@@ -208,7 +208,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 5, bottom: 5),
+                  padding: const EdgeInsets.only(left: 5, bottom: 5),
                   child: Text(
                     'Based on your listening history',
                     style: TextStyle(
@@ -226,41 +226,41 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       //Artist 1
                       Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               UserCard(
-                                  image: AssetImage('assets/mck_avatar.PNG'),
+                                  image: const AssetImage('assets/mck_avatar.PNG'),
                                   userName: 'MCK'),
                             ],
                           )),
                       //Artist 2
                       Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               UserCard(
-                                  image: AssetImage('assets/tyga_avatar.PNG'),
+                                  image: const AssetImage('assets/tyga_avatar.PNG'),
                                   userName: 'Tyga'),
                             ],
                           )),
                       //Artist 3
                       Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               UserCard(
-                                  image: AssetImage('assets/tlinh_avatar.PNG'),
+                                  image: const AssetImage('assets/tlinh_avatar.PNG'),
                                   userName: 'Tlinh'),
                             ],
                           )),
                       //Artist 4
                       Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               UserCard(
-                                  image: AssetImage('assets/denvau_avatar.PNG'),
+                                  image: const AssetImage('assets/denvau_avatar.PNG'),
                                   userName: 'denvau'),
                             ],
                           )),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../views/userPage/user.dart';
 
+// ignore: must_be_immutable
 class UserCard extends StatefulWidget {
   final ImageProvider? image;
   final String? userName;
@@ -32,7 +33,7 @@ class _UserCardState extends State<UserCard> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(bottom: 5),
+                padding: const EdgeInsets.only(bottom: 5),
                 child: CircleAvatar(
                   backgroundColor: Colors.grey,
                   radius: 61,
@@ -43,9 +44,9 @@ class _UserCardState extends State<UserCard> {
                 ),
               ),
               Container(
-                  padding: EdgeInsets.all(3),
+                  padding: const EdgeInsets.all(3),
                   child: Text(widget.userName!,
-                      style: TextStyle(color: Colors.black, fontSize: 16))),
+                      style: const TextStyle(color: Colors.black, fontSize: 16))),
             ],
           ),
         ),
@@ -57,11 +58,11 @@ class _UserCardState extends State<UserCard> {
                         widget.isFollowed = !widget.isFollowed; 
                       });
                     },
-                    child: Text('Follow',
-                        style: TextStyle(color: Colors.white, fontSize: 14)),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.orange[900],
-                    ))
+                    ),
+                    child: const Text('Follow',
+                        style: TextStyle(color: Colors.white, fontSize: 14)))
                 : TextButton(
                     onPressed: () {
                       setState(() {
