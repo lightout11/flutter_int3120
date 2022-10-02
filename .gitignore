@@ -51,6 +51,5 @@ macos/
 windows/
 android/
 web/
-build/
 .idea/
 .dart_tool/
