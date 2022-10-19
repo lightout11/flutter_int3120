@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/home_screens/home.dart';
-import '../screens/library_screens/library.dart';
+import '../screens/library_screens/library_screen.dart';
 import '../screens/search_screens/search.dart';
 import '../screens/stream_screens/stream_music.dart';
 import '../screens/profile_screens/profile_view.dart';
