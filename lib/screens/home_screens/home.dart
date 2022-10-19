@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/widgets/album_card.dart';
-import '../albumPage/album_view.dart';
+import '../album_screens/album_view.dart';
 import 'package:learnflutter/widgets/user_card.dart';
-import '../notificationPage/notification_view.dart';
+import '../notification_screens/notification_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

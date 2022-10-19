@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../views/homePage/home.dart';
-import '../views/libraryPage/library.dart';
-import '../views/searchPage/search.dart';
-import '../views/streamPage/stream_music.dart';
-import '../views/profilePage/profile_view.dart';
+import '../screens/home_screens/home.dart';
+import '../screens/library_screens/library.dart';
+import '../screens/search_screens/search.dart';
+import '../screens/stream_screens/stream_music.dart';
+import '../screens/profile_screens/profile_view.dart';
 
 class Tabbar extends StatefulWidget {
   const Tabbar({super.key});

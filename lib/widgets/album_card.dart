@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import '../views/albumPage/album_view.dart';
+import '../screens/album_screens/album_view.dart';
 
 class AlbumCard extends StatelessWidget {
   final ImageProvider? image;
