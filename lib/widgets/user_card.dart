@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../views/userPage/user.dart';
+import '../screens/user_screens/user.dart';
 
 // ignore: must_be_immutable
 class UserCard extends StatefulWidget {

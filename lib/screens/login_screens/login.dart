@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
-class NotificationView extends StatelessWidget {
-  const NotificationView({super.key});
+class LoginView extends StatefulWidget {
+  static const routeName = '/login_view';
+  final ImageProvider? image;
+  final int? id;
+  const LoginView({super.key, this.image, this.id});
 
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +19,7 @@ class NotificationView extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text('Notifications',
+        title: const Text('Login',
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.black, fontFamily: 'Interstate')),
         backgroundColor: Colors.white,

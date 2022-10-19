@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LibraryView extends StatefulWidget {
+  static const routeName = '/library_view';
   const LibraryView({super.key});
 
   @override

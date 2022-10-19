@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AlbumView extends StatefulWidget {
-  final ImageProvider? image;
-  const AlbumView({super.key, this.image});
+  static const routeName = '/album_view';
+  final String? imageUrl;
+  const AlbumView({super.key, this.imageUrl});
 
   @override
   State<AlbumView> createState() => _AlbumViewState();

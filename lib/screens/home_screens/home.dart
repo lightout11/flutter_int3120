@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:learnflutter/widgets/album_card.dart';
-import '../albumPage/album_view.dart';
+import 'package:learnflutter/widgets/album_item.dart';
+import '../album_screens/album_view.dart';
 import 'package:learnflutter/widgets/user_card.dart';
-import '../notificationPage/notification_view.dart';
+import '../notification_screens/notification_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -75,34 +75,10 @@ class _HomeViewState extends State<HomeView> {
                     padding: const EdgeInsets.only(right: 5),
                     child: Row(
                       children: [
-                        AlbumCard(
-                            image: const AssetImage('assets/album1.jpg'),
-                            albumName: 'A\$ap Rocky',
-                            albumNote: 'Related Tracks',
-                            onTap: (_) {},
-                            width: 140,
-                            height: 180),
-                        AlbumCard(
-                            image: const AssetImage('assets/album5.jpg'),
-                            albumName: 'Silence',
-                            albumNote: 'Related Tracks',
-                            onTap: (_) {},
-                            width: 140,
-                            height: 180),
-                        AlbumCard(
-                            image: const AssetImage('assets/album3.jpg'),
-                            albumName: 'Brainwash',
-                            albumNote: 'Related Tracks',
-                            onTap: (_) {},
-                            width: 140,
-                            height: 180),
-                        AlbumCard(
-                            image: const AssetImage('assets/album4.jpg'),
-                            albumName: 'Ophella',
-                            albumNote: 'Related Tracks',
-                            onTap: (_) {},
-                            width: 140,
-                            height: 180),
+                        AlbumItem(),
+                        AlbumItem(),
+                        AlbumItem(),
+                        AlbumItem(),
                       ],
                     ),
                   ),
@@ -117,77 +93,77 @@ class _HomeViewState extends State<HomeView> {
           ),
 
           //Album list 2
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AlbumView(
-                    image: AssetImage('assets/badtrip_album.jpg'),
-                  ),
-                ),
-              );
-            },
-            child: Container(
-              color: Colors.white,
-              padding:
-                  const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(left: 5, bottom: 5),
-                    child: const Text(
-                      'SoundCloud Weekly',
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black87,
-                        fontFamily: 'Interstate',
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 5, bottom: 5),
-                    child: Text(
-                      'All of SoundCloud. Just for you.',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.grey[600],
-                        fontFamily: 'Interstate',
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                      width: double.infinity,
-                      height: 200,
-                      child: Card(
-                        child: Image(
-                            image: AssetImage('assets/badtrip_album.jpg'),
-                            fit: BoxFit.fill),
-                      )),
-                  Container(
-                    padding: const EdgeInsets.only(top: 10, bottom: 5, left: 5),
-                    child: Row(
-                      children: const [
-                        CircleAvatar(
-                          backgroundImage: AssetImage('assets/user_avatar.jpg'),
-                          radius: 15,
-                        ),
-                        SizedBox(width: 5),
-                        Text('Based on your listening history',
-                            style: TextStyle(color: Colors.grey)),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 20,
-            color: Colors.grey[300],
-          ),
+          // GestureDetector(
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => const AlbumView(
+          //           image: AssetImage('assets/badtrip_album.jpg'),
+          //         ),
+          //       ),
+          //     );
+          //   },
+          //   child: Container(
+          //     color: Colors.white,
+          //     padding:
+          //         const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+          //     child: Column(
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       children: [
+          //         Container(
+          //           padding: const EdgeInsets.only(left: 5, bottom: 5),
+          //           child: const Text(
+          //             'SoundCloud Weekly',
+          //             style: TextStyle(
+          //               fontSize: 25,
+          //               color: Colors.black87,
+          //               fontFamily: 'Interstate',
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           padding: const EdgeInsets.only(left: 5, bottom: 5),
+          //           child: Text(
+          //             'All of SoundCloud. Just for you.',
+          //             style: TextStyle(
+          //               fontSize: 15,
+          //               color: Colors.grey[600],
+          //               fontFamily: 'Interstate',
+          //             ),
+          //           ),
+          //         ),
+          //         const SizedBox(
+          //             width: double.infinity,
+          //             height: 200,
+          //             child: Card(
+          //               child: Image(
+          //                   image: AssetImage('assets/badtrip_album.jpg'),
+          //                   fit: BoxFit.fill),
+          //             )),
+          //         Container(
+          //           padding: const EdgeInsets.only(top: 10, bottom: 5, left: 5),
+          //           child: Row(
+          //             children: const [
+          //               CircleAvatar(
+          //                 backgroundImage: AssetImage('assets/user_avatar.jpg'),
+          //                 radius: 15,
+          //               ),
+          //               SizedBox(width: 5),
+          //               Text('Based on your listening history',
+          //                   style: TextStyle(color: Colors.grey)),
+          //             ],
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+          // Container(
+          //   width: double.infinity,
+          //   height: 20,
+          //   color: Colors.grey[300],
+          // ),
 
           //Artist you should follow
           Container(
