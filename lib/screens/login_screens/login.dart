@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
+  static const routeName = '/login_view';
   final ImageProvider? image;
   final int? id;
   const LoginView({super.key, this.image, this.id});
