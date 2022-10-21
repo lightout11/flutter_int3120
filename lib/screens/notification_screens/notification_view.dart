@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class NotificationView extends StatelessWidget {
-  static const routeName = '/notification_view';
   const NotificationView({super.key});
 
   @override
