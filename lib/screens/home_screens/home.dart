@@ -75,10 +75,30 @@ class _HomeViewState extends State<HomeView> {
                     padding: const EdgeInsets.only(right: 5),
                     child: Row(
                       children: [
-                        AlbumItem(),
-                        AlbumItem(),
-                        AlbumItem(),
-                        AlbumItem(),
+                        AlbumItem(
+                            imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/fd/AsapRockyLSD.jpg/220px-AsapRockyLSD.jpg',
+                            title: 'A\$ap Rocky',
+                            description: 'Related Tracks',
+                            onTap: (_) {},
+                            ),
+                        AlbumItem(
+                            imageUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c4/Marshmello_Silence.jpg',
+                            title: 'Silence',
+                            description: 'Related Tracks',
+                            onTap: (_) {},
+                            ),
+                        AlbumItem(
+                            imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Brainwashed_harrison.jpg/220px-Brainwashed_harrison.jpg',
+                            title: 'Brainwashed',
+                            description: 'Related Tracks',
+                            onTap: (_) {},
+                            ),
+                        AlbumItem(
+                            imageUrl: 'https://i.scdn.co/image/ab67616d0000b2737903f3671ef8097c6a9a31f8',
+                            title: 'Ophelia',
+                            description: 'Related Tracks',
+                            onTap: (_) {},
+                            ),
                       ],
                     ),
                   ),
@@ -93,77 +113,77 @@ class _HomeViewState extends State<HomeView> {
           ),
 
           //Album list 2
-          // GestureDetector(
-          //   onTap: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(
-          //         builder: (context) => const AlbumView(
-          //           image: AssetImage('assets/badtrip_album.jpg'),
-          //         ),
-          //       ),
-          //     );
-          //   },
-          //   child: Container(
-          //     color: Colors.white,
-          //     padding:
-          //         const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
-          //     child: Column(
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       children: [
-          //         Container(
-          //           padding: const EdgeInsets.only(left: 5, bottom: 5),
-          //           child: const Text(
-          //             'SoundCloud Weekly',
-          //             style: TextStyle(
-          //               fontSize: 25,
-          //               color: Colors.black87,
-          //               fontFamily: 'Interstate',
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           padding: const EdgeInsets.only(left: 5, bottom: 5),
-          //           child: Text(
-          //             'All of SoundCloud. Just for you.',
-          //             style: TextStyle(
-          //               fontSize: 15,
-          //               color: Colors.grey[600],
-          //               fontFamily: 'Interstate',
-          //             ),
-          //           ),
-          //         ),
-          //         const SizedBox(
-          //             width: double.infinity,
-          //             height: 200,
-          //             child: Card(
-          //               child: Image(
-          //                   image: AssetImage('assets/badtrip_album.jpg'),
-          //                   fit: BoxFit.fill),
-          //             )),
-          //         Container(
-          //           padding: const EdgeInsets.only(top: 10, bottom: 5, left: 5),
-          //           child: Row(
-          //             children: const [
-          //               CircleAvatar(
-          //                 backgroundImage: AssetImage('assets/user_avatar.jpg'),
-          //                 radius: 15,
-          //               ),
-          //               SizedBox(width: 5),
-          //               Text('Based on your listening history',
-          //                   style: TextStyle(color: Colors.grey)),
-          //             ],
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
-          // Container(
-          //   width: double.infinity,
-          //   height: 20,
-          //   color: Colors.grey[300],
-          // ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AlbumView(
+                    imageUrl: 'https://i1.sndcdn.com/artworks-fyonocwVA5MQrBBm-zQj68w-t500x500.jpg',
+                  ),
+                ),
+              );
+            },
+            child: Container(
+              color: Colors.white,
+              padding:
+                  const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(left: 5, bottom: 5),
+                    child: const Text(
+                      'SoundCloud Weekly',
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.black87,
+                        fontFamily: 'Interstate',
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(left: 5, bottom: 5),
+                    child: Text(
+                      'All of SoundCloud. Just for you.',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.grey[600],
+                        fontFamily: 'Interstate',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                      width: double.infinity,
+                      height: 200,
+                      child: Card(
+                        child: Image(
+                            image: AssetImage('assets/badtrip_album.jpg'),
+                            fit: BoxFit.fill),
+                      )),
+                  Container(
+                    padding: const EdgeInsets.only(top: 10, bottom: 5, left: 5),
+                    child: Row(
+                      children: const [
+                        CircleAvatar(
+                          backgroundImage: AssetImage('assets/user_avatar.jpg'),
+                          radius: 15,
+                        ),
+                        SizedBox(width: 5),
+                        Text('Based on your listening history',
+                            style: TextStyle(color: Colors.grey)),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: 20,
+            color: Colors.grey[300],
+          ),
 
           //Artist you should follow
           Container(

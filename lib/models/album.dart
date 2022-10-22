@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class Album with ChangeNotifier {
+class Album {
   final String? id;
   final String? title;
   final String? description;
