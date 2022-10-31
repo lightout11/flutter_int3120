@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learnflutter/models/album.dart';
-import 'package:learnflutter/models/albums.dart';
+import 'package:get/get.dart';
+import 'package:learnflutter/models/playlist_model.dart';
+import 'package:learnflutter/screens/home_screens/home_screen.dart';
 import './navigations/tabbar.dart';
+import 'screens/song_screeens/song_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,14 +17,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
+          scaffoldBackgroundColor: Colors.orange,
           brightness: Brightness.dark,
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.transparent,
             type: BottomNavigationBarType.fixed,
             selectedLabelStyle: TextStyle(
               fontSize: 12,
@@ -40,7 +42,12 @@ class _MyAppState extends State<MyApp> {
             displayColor: Colors.white,
           ),
         ),
-        home: const Tabbar(),
-        routes: {});
+        home: const HomeView(),
+        getPages: [
+          GetPage(name: '/', page: () => const HomeView()),
+          GetPage(name: '/song', page: () => const SongScreen())
+          //GetPage(name: '/playlist', page: () => const PlaylistScreen())
+        ],
+        );
   }
 }
