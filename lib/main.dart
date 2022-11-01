@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:learnflutter/models/playlist_model.dart';
 import 'package:learnflutter/screens/home_screens/home_screen.dart';
 import './navigations/tabbar.dart';
+import 'screens/playlist_screens/playlist_screen.dart';
 import 'screens/song_screeens/song_screen.dart';
 
 void main() => runApp(const MyApp());
@@ -42,11 +43,11 @@ class _MyAppState extends State<MyApp> {
             displayColor: Colors.white,
           ),
         ),
-        home: const HomeView(),
+        home: const PlaylistScreen(),
         getPages: [
           GetPage(name: '/', page: () => const HomeView()),
-          GetPage(name: '/song', page: () => const SongScreen())
-          //GetPage(name: '/playlist', page: () => const PlaylistScreen())
+          GetPage(name: '/song', page: () => const SongScreen()),
+          GetPage(name: '/playlist', page: () => const PlaylistScreen())
         ],
         );
   }
