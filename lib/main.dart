@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnflutter/models/playlist_model.dart';
 import 'package:learnflutter/screens/home_screens/home_screen.dart';
-import './navigations/tabbar.dart';
 import 'screens/playlist_screens/playlist_screen.dart';
 import 'screens/song_screeens/song_screen.dart';
 

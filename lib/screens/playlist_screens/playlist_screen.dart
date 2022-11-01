@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../models/playlist_model.dart';
-import '../../models/song_model.dart';
 
 class PlaylistScreen extends StatefulWidget {
   const PlaylistScreen({super.key});
@@ -32,7 +31,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
-          title: Text('Playlist'),
+          title: const Text('Playlist'),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -147,7 +146,7 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
                               fontSize: 17),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Icon(
@@ -204,7 +203,7 @@ class PlaylistInformation extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Text(

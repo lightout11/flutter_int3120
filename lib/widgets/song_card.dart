@@ -65,7 +65,7 @@ class SongCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Icon(Icons.play_circle, color: Colors.deepOrange),
+                    const Icon(Icons.play_circle, color: Colors.deepOrange),
                   ],
                 )),
           ],

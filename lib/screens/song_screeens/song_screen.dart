@@ -5,7 +5,6 @@ import 'package:learnflutter/widgets/audio_file.dart';
 //import 'package:just_audio/just_audio.dart';
 //import 'package:rxdart/rxdart.dart' as rxdart;
 import '../../models/song_model.dart';
-import '../../widgets/seek_bar.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 
@@ -22,6 +21,7 @@ class _SongScreenState extends State<SongScreen> with SingleTickerProviderStateM
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     advancedPlayer = AudioPlayer();
@@ -52,13 +52,13 @@ class _SongScreenState extends State<SongScreen> with SingleTickerProviderStateM
                     song.title,
                     style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.white, fontWeight: FontWeight.bold,),
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                   Text(
                     song.description,
                     maxLines: 2,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.white),
                   ),
-                  SizedBox(height: 30,),
+                  const SizedBox(height: 30,),
                   AudioFile(advancedPlayer: advancedPlayer!,),
                   
                 ],
@@ -86,7 +86,7 @@ class _BackgroundFilter extends StatelessWidget {
               Colors.white.withOpacity(0.5),
               Colors.white.withOpacity(0.0),
             ],
-            stops: [
+            stops: const [
               0.0,
               0.4,
               0.6

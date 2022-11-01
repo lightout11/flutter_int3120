@@ -10,38 +10,39 @@ class AudioFile extends StatefulWidget {
 }
 
 class _AudioFileState extends State<AudioFile> {
-  Duration _duration = new Duration();
-  Duration _position = new Duration();
+  Duration _duration = const Duration();
+  Duration _position = const Duration();
 
   final String path = "https://filesamples.com/samples/audio/mp3/sample4.mp3";
   bool isPlaying = false;
   bool isPaused = false;
   bool isRepeat = false;
   Color color = Colors.white;
-  List<IconData> _icons = [
+  final List<IconData> _icons = [
     Icons.play_circle_fill,
     Icons.pause_circle_filled,
   ];
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
-    this.widget.advancedPlayer!.onDurationChanged.listen((d) {
+    widget.advancedPlayer!.onDurationChanged.listen((d) {
       setState(() {
         _duration = d;
       });
     });
-    this.widget.advancedPlayer!.onAudioPositionChanged.listen((p) {
+    widget.advancedPlayer!.onAudioPositionChanged.listen((p) {
       setState(() {
         _position = p;
       });
     });
 
-    this.widget.advancedPlayer!.setUrl(path);
-    this.widget.advancedPlayer!.onPlayerCompletion.listen((event) {
+    widget.advancedPlayer!.setUrl(path);
+    widget.advancedPlayer!.onPlayerCompletion.listen((event) {
       setState(() {
-        _position = Duration(seconds: 0);
+        _position = const Duration(seconds: 0);
         if (isRepeat == true) {
           isPlaying = true;
         } else {
@@ -63,12 +64,12 @@ class _AudioFileState extends State<AudioFile> {
       iconSize: 70,
       onPressed: () {
         if (isPlaying == false) {
-          this.widget.advancedPlayer!.play(path);
+          widget.advancedPlayer!.play(path);
           setState(() {
             isPlaying = true;
           });
         } else if (isPlaying == true) {
-          this.widget.advancedPlayer!.pause();
+          widget.advancedPlayer!.pause();
           setState(() {
             isPlaying = false;
           });
@@ -79,27 +80,27 @@ class _AudioFileState extends State<AudioFile> {
 
   Widget btnFast() {
     return IconButton(
-      icon: Icon(Icons.skip_next),
+      icon: const Icon(Icons.skip_next),
       iconSize: 50,
       onPressed: () {
-        this.widget.advancedPlayer!.setPlaybackRate(1.5);
+        widget.advancedPlayer!.setPlaybackRate(1.5);
       },
     );
   }
 
   Widget btnSlow() {
     return IconButton(
-      icon: Icon(Icons.skip_previous),
+      icon: const Icon(Icons.skip_previous),
       iconSize: 50,
       onPressed: () {
-        this.widget.advancedPlayer!.setPlaybackRate(0.5);
+        widget.advancedPlayer!.setPlaybackRate(0.5);
       },
     );
   }
 
   Widget btnShuffle() {
     return IconButton(
-      icon: Icon(Icons.shuffle),
+      icon: const Icon(Icons.shuffle),
       iconSize: 35,
       onPressed: () {},
     );
@@ -107,18 +108,18 @@ class _AudioFileState extends State<AudioFile> {
 
   Widget btnRepeat() {
     return IconButton(
-      icon: Icon(Icons.loop),
+      icon: const Icon(Icons.loop),
       iconSize: 35,
       color: color,
       onPressed: () {
         if (isRepeat == false) {
-          this.widget.advancedPlayer!.setReleaseMode(ReleaseMode.LOOP);
+          widget.advancedPlayer!.setReleaseMode(ReleaseMode.LOOP);
           setState(() {
             isRepeat = true;
             color = Colors.black;
           });
         } else if (isRepeat == true) {
-            this.widget.advancedPlayer!.setReleaseMode(ReleaseMode.RELEASE);
+            widget.advancedPlayer!.setReleaseMode(ReleaseMode.RELEASE);
             color = Colors.white;
             isRepeat = false;
         }
@@ -127,29 +128,27 @@ class _AudioFileState extends State<AudioFile> {
   }
 
   Widget loadAsset() {
-    return Container(
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              //btnRepeat(),
-              btnSlow(),
-              btnStart(),
-              btnFast(),
-              //btnLoop(),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              btnRepeat(),
-              btnShuffle(),
-            ],
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            //btnRepeat(),
+            btnSlow(),
+            btnStart(),
+            btnFast(),
+            //btnLoop(),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            btnRepeat(),
+            btnShuffle(),
+          ],
+        )
+      ],
     );
   }
 
@@ -171,34 +170,33 @@ class _AudioFileState extends State<AudioFile> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        
-          //padding: const EdgeInsets.only(left: 20, right: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                _position.toString().split(".")[0],
-                style: TextStyle(fontSize: 16),
-              ),
-              Text(
-                _duration.toString().split(".")[0],
-                style: TextStyle(fontSize: 16),
-              ),
-            ],
+    
+      //padding: const EdgeInsets.only(left: 20, right: 20),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            _position.toString().split(".")[0],
+            style: const TextStyle(fontSize: 16),
           ),
-        
-        slider(),
-        loadAsset(),
+          Text(
+            _duration.toString().split(".")[0],
+            style: const TextStyle(fontSize: 16),
+          ),
+        ],
+      ),
+    
+    slider(),
+    loadAsset(),
       ],
-    ));
+    );
   }
 
   void changeToSecond(int second) {
     Duration newDuration = Duration(seconds: second);
-    this.widget.advancedPlayer!.seek(newDuration);
+    widget.advancedPlayer!.seek(newDuration);
   }
 }

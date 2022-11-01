@@ -31,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const _CustomAppBar(),
-        bottomNavigationBar: _CustomNavBar(),
+        bottomNavigationBar: const _CustomNavBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -90,8 +90,8 @@ class _TrendingMusic extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, top: 20, bottom: 20),
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
+          const Padding(
+            padding: EdgeInsets.only(right: 20.0),
             child: SectionHeader(title: 'Trending Music'),
           ),
           const SizedBox(
@@ -172,7 +172,7 @@ class _CustomNavBar extends StatelessWidget {
       selectedItemColor: Colors.white,
       showUnselectedLabels: false,
       showSelectedLabels: false,
-      items: [
+      items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: "Home",
@@ -218,6 +218,7 @@ class _CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
+  // ignore: todo
   // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(56.0);
 }

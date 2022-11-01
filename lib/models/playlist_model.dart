@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:learnflutter/models/song_model.dart';
 
 class Playlist {
