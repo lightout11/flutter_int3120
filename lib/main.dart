@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
             displayColor: Colors.white,
           ),
         ),
-        home: const PlaylistScreen(),
+        home: const HomeView(),
         getPages: [
           GetPage(name: '/', page: () => const HomeView()),
           GetPage(name: '/song', page: () => const SongScreen()),

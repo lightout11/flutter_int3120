@@ -43,12 +43,140 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-                Row(
-                  children: [Text("Play")],
-                ),
+                const _PlayOrShuffleSwitch(),
+                _PlaylistSongs(playlist: playlist),
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _PlaylistSongs extends StatelessWidget {
+  const _PlaylistSongs({
+    Key? key,
+    required this.playlist,
+  }) : super(key: key);
+
+  final Playlist playlist;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: playlist.songs.length,
+      itemBuilder: ((context, index) {
+        return ListTile(
+          leading: Text(
+            '${index + 1}',
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(fontWeight: FontWeight.bold),
+          ),
+          title: Text(
+            playlist.songs[index].title,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(fontWeight: FontWeight.bold),
+          ),
+          subtitle: Text('${playlist.songs[index].description} - 04:04'),
+          trailing: const Icon(Icons.more_vert, color: Colors.white,),
+        );
+      }),
+    );
+  }
+}
+
+class _PlayOrShuffleSwitch extends StatefulWidget {
+  const _PlayOrShuffleSwitch({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_PlayOrShuffleSwitch> createState() => _PlayOrShuffleSwitchState();
+}
+
+class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
+  bool isPlay = true;
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isPlay = !isPlay;
+        });
+      },
+      child: Container(
+        height: 50,
+        width: width,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Stack(
+          children: [
+            AnimatedPositioned(
+              duration: const Duration(milliseconds: 200),
+              left: isPlay ? 0 : width * 0.45,
+              child: Container(
+                height: 50,
+                width: width * 0.45,
+                decoration: BoxDecoration(
+                  color: Colors.deepOrange.shade400,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Text(
+                          "Play",
+                          style: TextStyle(
+                              color: isPlay ? Colors.white : Colors.deepOrange,
+                              fontSize: 17),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        Icons.play_circle,
+                        color: isPlay ? Colors.white : Colors.deepOrange,
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Shuffle",
+                        style: TextStyle(
+                            color: isPlay ? Colors.deepOrange : Colors.white,
+                            fontSize: 17),
+                      ),
+                      Icon(
+                        Icons.shuffle,
+                        color: isPlay ? Colors.deepOrange : Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
