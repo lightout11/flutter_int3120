@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learnflutter/widgets/audio_file.dart';
+import 'package:provider/provider.dart';
 //import 'package:just_audio/just_audio.dart';
 //import 'package:rxdart/rxdart.dart' as rxdart;
 import '../../models/song_model.dart';
@@ -11,12 +12,14 @@ import 'package:audioplayers/audioplayers.dart';
 class SongScreen extends StatefulWidget {
   const SongScreen({super.key});
 
+  static const routeName = '/song';
+
   @override
   State<SongScreen> createState() => _SongScreenState();
 }
 
 class _SongScreenState extends State<SongScreen> with SingleTickerProviderStateMixin {
-  Song song = Get.arguments ?? Song.songs[0];
+  // Song song = Get.arguments ?? Song.songs[0];
   AudioPlayer? advancedPlayer;
 
   @override
@@ -28,6 +31,8 @@ class _SongScreenState extends State<SongScreen> with SingleTickerProviderStateM
   }
   @override
   Widget build(BuildContext context) {
+    final songId= ModalRoute.of(context)?.settings.arguments as String;
+    final song = Provider.of<Song>(context, listen: false).findById(songId);
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -56,10 +61,10 @@ class _SongScreenState extends State<SongScreen> with SingleTickerProviderStateM
                   Text(
                     song.description,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.white),
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.white),
                   ),
                   const SizedBox(height: 30,),
-                  AudioFile(advancedPlayer: advancedPlayer!,),
+                  AudioFile(advancedPlayer: advancedPlayer!,song: song),
                   
                 ],
               ),

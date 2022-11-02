@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learnflutter/models/playlist_model.dart';
+import 'package:provider/provider.dart';
+import '../../models/playlist_model.dart';
 import '../../models/song_model.dart';
 import '../../widgets/playlist_card.dart';
 import '../../widgets/section_header.dart';
@@ -13,10 +14,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  List<Song> songs = Song.songs;
-  List<Playlist> playlists = Playlist.playlists;
+  //List<Song> songs = Song.songs;
+  //List<Playlist> playlists = Playlist.playlists;
   @override
   Widget build(BuildContext context) {
+    final playlists = Provider.of<Playlist>(context);
+    final songs = Provider.of<Song>(context);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -36,8 +39,8 @@ class _HomeViewState extends State<HomeView> {
           child: Column(
             children: [
               const _DiscoverMusic(),
-              _TrendingMusic(songs: songs),
-              _PlaylistMusic(playlists: playlists)
+              _TrendingMusic(songs: songs.items),
+              _PlaylistMusic(playlists: playlists.items)
             ],
           ),
         ),
@@ -52,13 +55,14 @@ class _PlaylistMusic extends StatelessWidget {
     required this.playlists,
   }) : super(key: key);
 
-  final List<Playlist> playlists;
+  final List<PlaylistItem> playlists;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
+        key: ValueKey('playlistCard'),
         children: [
           const SectionHeader(title: 'Playlists'),
           ListView.builder(
@@ -82,7 +86,7 @@ class _TrendingMusic extends StatelessWidget {
     required this.songs,
   }) : super(key: key);
 
-  final List<Song> songs;
+  final List<SongItem> songs;
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +102,7 @@ class _TrendingMusic extends StatelessWidget {
             height: 20,
           ),
           SizedBox(
+            key: ValueKey("songCard"),
             height: MediaQuery.of(context).size.height * 0.27,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -137,6 +142,7 @@ class _DiscoverMusic extends StatelessWidget {
             height: 20,
           ),
           TextFormField(
+            key: ValueKey('search'),
             decoration: InputDecoration(
                 isDense: true,
                 filled: true,

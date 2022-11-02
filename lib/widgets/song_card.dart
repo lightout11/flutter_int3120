@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learnflutter/screens/song_screeens/song_screen.dart';
 
 import '../models/song_model.dart';
 
@@ -9,15 +10,16 @@ class SongCard extends StatelessWidget {
     required this.song,
   }) : super(key: key);
 
-  final Song song;
+  final SongItem song;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed('/song',arguments: song);
+        Navigator.of(context).pushNamed(SongScreen.routeName, arguments: song.id);
       },
       child: Container(
+        
         margin: const EdgeInsets.only(right: 10),
         child: Stack(
           alignment: Alignment.bottomCenter,
@@ -36,7 +38,7 @@ class SongCard extends StatelessWidget {
             ),
             Container(
                 height: 50,
-                width: MediaQuery.of(context).size.width * 0.37,
+                width: MediaQuery.of(context).size.width * 0.45,
                 margin: const EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
@@ -59,7 +61,7 @@ class SongCard extends StatelessWidget {
                         Text(
                           song.description,
                           style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                color: Colors.white,
+                                color: Colors.grey,
                                 fontWeight: FontWeight.bold,
                               ),
                         ),

@@ -1,9 +1,17 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/song_model.dart';
 
 class AudioFile extends StatefulWidget {
   final AudioPlayer? advancedPlayer;
-  const AudioFile({super.key, this.advancedPlayer});
+  final SongItem song;
+  const AudioFile({
+    super.key,
+    required this.advancedPlayer,
+    required this.song,
+  });
 
   @override
   State<AudioFile> createState() => _AudioFileState();
@@ -12,8 +20,7 @@ class AudioFile extends StatefulWidget {
 class _AudioFileState extends State<AudioFile> {
   Duration _duration = const Duration();
   Duration _position = const Duration();
-
-  final String path = "https://filesamples.com/samples/audio/mp3/sample4.mp3";
+  //final String path = widget.song.url;
   bool isPlaying = false;
   bool isPaused = false;
   bool isRepeat = false;
@@ -39,7 +46,7 @@ class _AudioFileState extends State<AudioFile> {
       });
     });
 
-    widget.advancedPlayer!.setUrl(path);
+    widget.advancedPlayer!.setUrl(widget.song.url);
     widget.advancedPlayer!.onPlayerCompletion.listen((event) {
       setState(() {
         _position = const Duration(seconds: 0);
@@ -53,18 +60,20 @@ class _AudioFileState extends State<AudioFile> {
     });
   }
 
-
-
   Widget btnStart() {
     return IconButton(
       padding: const EdgeInsets.only(bottom: 10),
       icon: isPlaying == false
-          ? Icon(_icons[0],)
-          : Icon(_icons[1],),
+          ? Icon(
+              _icons[0],
+            )
+          : Icon(
+              _icons[1],
+            ),
       iconSize: 70,
       onPressed: () {
         if (isPlaying == false) {
-          widget.advancedPlayer!.play(path);
+          widget.advancedPlayer!.play(widget.song.url);
           setState(() {
             isPlaying = true;
           });
@@ -119,9 +128,9 @@ class _AudioFileState extends State<AudioFile> {
             color = Colors.black;
           });
         } else if (isRepeat == true) {
-            widget.advancedPlayer!.setReleaseMode(ReleaseMode.RELEASE);
-            color = Colors.white;
-            isRepeat = false;
+          widget.advancedPlayer!.setReleaseMode(ReleaseMode.RELEASE);
+          color = Colors.white;
+          isRepeat = false;
         }
       },
     );
@@ -170,27 +179,26 @@ class _AudioFileState extends State<AudioFile> {
 
   @override
   Widget build(BuildContext context) {
+    final songs = Provider.of<Song>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-    
-      //padding: const EdgeInsets.only(left: 20, right: 20),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            _position.toString().split(".")[0],
-            style: const TextStyle(fontSize: 16),
-          ),
-          Text(
-            _duration.toString().split(".")[0],
-            style: const TextStyle(fontSize: 16),
-          ),
-        ],
-      ),
-    
-    slider(),
-    loadAsset(),
+        //padding: const EdgeInsets.only(left: 20, right: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              _position.toString().split(".")[0],
+              style: const TextStyle(fontSize: 16),
+            ),
+            Text(
+              _duration.toString().split(".")[0],
+              style: const TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+        slider(),
+        loadAsset(),
       ],
     );
   }

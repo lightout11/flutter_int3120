@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../models/playlist_model.dart';
 
 class PlaylistScreen extends StatefulWidget {
   const PlaylistScreen({super.key});
+
+  static const routeName = '/playlist';
 
   @override
   State<PlaylistScreen> createState() => _PlaylistScreenState();
@@ -11,9 +14,11 @@ class PlaylistScreen extends StatefulWidget {
 
 class _PlaylistScreenState extends State<PlaylistScreen> {
   //List<Song> songs = Song.songs;
-  Playlist playlist = Playlist.playlists[0];
   @override
   Widget build(BuildContext context) {
+    final playListId= ModalRoute.of(context)?.settings.arguments as String;
+    final playlists = Provider.of<Playlist>(context, listen: false).findById(playListId);
+    //final songs = playlists.songs;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -38,12 +43,12 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                PlaylistInformation(playlist: playlist),
+                PlaylistInformation(playlist: playlists),
                 const SizedBox(
                   height: 30,
                 ),
                 const _PlayOrShuffleSwitch(),
-                _PlaylistSongs(playlist: playlist),
+                _PlaylistSongs(playlist: playlists),
               ],
             ),
           ),
@@ -59,7 +64,7 @@ class _PlaylistSongs extends StatelessWidget {
     required this.playlist,
   }) : super(key: key);
 
-  final Playlist playlist;
+  final PlaylistItem playlist;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +88,7 @@ class _PlaylistSongs extends StatelessWidget {
                 .bodyLarge!
                 .copyWith(fontWeight: FontWeight.bold),
           ),
-          subtitle: Text('${playlist.songs[index].description} - 04:04'),
+          subtitle: Text('${playlist.songs[index].description}'),
           trailing: const Icon(Icons.more_vert, color: Colors.white,),
         );
       }),
@@ -188,7 +193,7 @@ class PlaylistInformation extends StatelessWidget {
     required this.playlist,
   }) : super(key: key);
 
-  final Playlist playlist;
+  final PlaylistItem playlist;
 
   @override
   Widget build(BuildContext context) {

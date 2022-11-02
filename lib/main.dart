@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learnflutter/models/song_model.dart';
 import 'package:learnflutter/screens/home_screens/home_screen.dart';
+import 'package:provider/provider.dart';
+import 'models/playlist_model.dart';
 import 'screens/playlist_screens/playlist_screen.dart';
 import 'screens/song_screeens/song_screen.dart';
 
@@ -16,7 +19,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => Playlist()),
+        ChangeNotifierProvider(create: (ctx) => Song()),
+      ],
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData(
@@ -37,16 +45,20 @@ class _MyAppState extends State<MyApp> {
         ),
         theme: ThemeData(
           textTheme: Theme.of(context).textTheme.apply(
-            bodyColor: Colors.white,
-            displayColor: Colors.white,
-          ),
+                bodyColor: Colors.white,
+                displayColor: Colors.white,
+              ),
         ),
         home: const HomeView(),
-        getPages: [
-          GetPage(name: '/', page: () => const HomeView()),
-          GetPage(name: '/song', page: () => const SongScreen()),
-          GetPage(name: '/playlist', page: () => const PlaylistScreen())
-        ],
-        );
+        routes: {
+          PlaylistScreen.routeName: (context) => const PlaylistScreen(),
+          SongScreen.routeName: (context) => const SongScreen(),
+
+          // GetPage(name: '/', page: () => const HomeView()),
+          // GetPage(name: '/song', page: () => const SongScreen()),
+          // GetPage(name: '/playlist', page: () => const PlaylistScreen())
+        },
+      ),
+    );
   }
 }
