@@ -18,7 +18,7 @@
 ## Week 7 + 8:
 * Integration Test: 
 
-* ![image](https://user-images.githubusercontent.com/64391055/199462196-0e06a17b-a321-47db-9c25-0b6bd81e40de.png)
+ ![image](https://user-images.githubusercontent.com/64391055/199462196-0e06a17b-a321-47db-9c25-0b6bd81e40de.png)
 
 
 # Run the Project:
