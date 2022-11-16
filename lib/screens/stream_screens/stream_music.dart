@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:learnflutter/widgets/song_card.dart';
+import 'package:provider/provider.dart';
+
+import '../../models/song_model.dart';
+
 class StreamMusicView extends StatefulWidget {
   const StreamMusicView({super.key});
 
@@ -11,6 +16,7 @@ class StreamMusicView extends StatefulWidget {
 class _StreamMusicViewState extends State<StreamMusicView> {
   @override
   Widget build(BuildContext context) {
+    final songs = Provider.of<Song>(context);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -30,8 +36,18 @@ class _StreamMusicViewState extends State<StreamMusicView> {
           centerTitle: true,
           title: const Text('Stream'),
         ),
-        body: SingleChildScrollView(
-          child: Center(child: Text('Stream here!'),)
+        body: GridView.builder(
+          padding: const EdgeInsets.all(25),
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 2 / 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 20,
+          ),
+          itemBuilder: (context, index) {
+            return SongCard(song: songs.items[index]);
+          },
+          itemCount: songs.items.length,
         ),
       ),
     );

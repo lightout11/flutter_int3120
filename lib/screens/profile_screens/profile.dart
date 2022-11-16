@@ -22,10 +22,10 @@ class ProfileView extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
-          title: const Text('Stream'),
+          title: const Text('Profile'),
         ),
         body: SingleChildScrollView(
-          child: Center(child: Text('Stream here!'),)
+          child: Center(child: Text('Profile here!'),)
         ),
       ),
     );
