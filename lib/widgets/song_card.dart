@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnflutter/screens/song_screeens/song_screen.dart';
+import 'package:learnflutter/screens/song_screens/song_screen.dart';
 
 import '../models/song_model.dart';
 

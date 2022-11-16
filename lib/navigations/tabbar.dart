@@ -26,26 +26,26 @@
 //             });
 //           },
 //           items: const [
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.home),
-            //   label: "Home",
-            // ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.electric_bolt),
-            //   label: "Stream",
-            // ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.search_outlined),
-            //   label: "Search",
-            // ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.library_music),
-            //   label: "Your Library",
-            // ),
-            // BottomNavigationBarItem(
-            //   icon: Icon(Icons.person),
-            //   label: "Profile",
-            // ),
+//             BottomNavigationBarItem(
+//               icon: Icon(Icons.home),
+//               label: "Home",
+//             ),
+//             BottomNavigationBarItem(
+//               icon: Icon(Icons.electric_bolt),
+//               label: "Stream",
+//             ),
+//             BottomNavigationBarItem(
+//               icon: Icon(Icons.search_outlined),
+//               label: "Search",
+//             ),
+//             BottomNavigationBarItem(
+//               icon: Icon(Icons.library_music),
+//               label: "Your Library",
+//             ),
+//             BottomNavigationBarItem(
+//               icon: Icon(Icons.person),
+//               label: "Profile",
+//             ),
 //           ],
 //         ),
 //         body: Stack(

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learnflutter/models/song_model.dart';
+import 'package:learnflutter/navigations/custom_nav_bar.dart';
 import 'package:learnflutter/screens/home_screens/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'models/playlist_model.dart';
 import 'screens/playlist_screens/playlist_screen.dart';
-import 'screens/song_screeens/song_screen.dart';
+import 'screens/song_screens/song_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -28,20 +29,22 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData(
-          scaffoldBackgroundColor: Colors.orange,
+          scaffoldBackgroundColor: Colors.deepOrange.shade800,
           brightness: Brightness.dark,
-          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: Colors.transparent,
-            type: BottomNavigationBarType.fixed,
-            selectedLabelStyle: TextStyle(
-              fontSize: 12,
-            ),
-            unselectedLabelStyle: TextStyle(
-              fontSize: 12,
-            ),
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.white38,
-          ),
+          // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          //   backgroundColor: Colors.deepOrange,
+          //   unselectedItemColor: Colors.deepOrange.shade100,
+          //   selectedItemColor: Colors.white,
+          //   showUnselectedLabels: false,
+          //   showSelectedLabels: false,
+          //   type: BottomNavigationBarType.fixed,
+          //   selectedLabelStyle: TextStyle(
+          //     fontSize: 12,
+          //   ),
+          //   unselectedLabelStyle: TextStyle(
+          //     fontSize: 12,
+          //   ),
+          // ),
         ),
         theme: ThemeData(
           textTheme: Theme.of(context).textTheme.apply(
@@ -49,7 +52,7 @@ class _MyAppState extends State<MyApp> {
                 displayColor: Colors.white,
               ),
         ),
-        home: const HomeView(),
+        home: const CustomNavBar(),
         routes: {
           PlaylistScreen.routeName: (context) => const PlaylistScreen(),
           SongScreen.routeName: (context) => const SongScreen(),

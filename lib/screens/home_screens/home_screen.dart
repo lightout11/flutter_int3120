@@ -5,6 +5,7 @@ import '../../models/song_model.dart';
 import '../../widgets/playlist_card.dart';
 import '../../widgets/section_header.dart';
 import '../../widgets/song_card.dart';
+import '../../navigations/custom_nav_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -34,7 +35,6 @@ class _HomeViewState extends State<HomeView> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const _CustomAppBar(),
-        bottomNavigationBar: const _CustomNavBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -164,41 +164,7 @@ class _DiscoverMusic extends StatelessWidget {
   }
 }
 
-class _CustomNavBar extends StatelessWidget {
-  const _CustomNavBar({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.deepOrange.shade800,
-      unselectedItemColor: Colors.white,
-      selectedItemColor: Colors.white,
-      showUnselectedLabels: false,
-      showSelectedLabels: false,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: "Home",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.electric_bolt),
-          label: "Stream",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.library_music),
-          label: "Your Library",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: "Profile",
-        ),
-      ],
-    );
-  }
-}
 
 class _CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   const _CustomAppBar({

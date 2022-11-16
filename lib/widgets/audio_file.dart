@@ -60,6 +60,13 @@ class _AudioFileState extends State<AudioFile> {
     });
   }
 
+  @override
+  void dispose() {
+    widget.advancedPlayer!.release();
+    widget.advancedPlayer!.dispose();
+    super.dispose();
+  }
+
   Widget btnStart() {
     return IconButton(
       padding: const EdgeInsets.only(bottom: 10),
