@@ -132,7 +132,7 @@ class _AudioFileState extends State<AudioFile> {
           widget.advancedPlayer!.setReleaseMode(ReleaseMode.LOOP);
           setState(() {
             isRepeat = true;
-            color = Colors.black;
+            color = Colors.orange;
           });
         } else if (isRepeat == true) {
           widget.advancedPlayer!.setReleaseMode(ReleaseMode.RELEASE);

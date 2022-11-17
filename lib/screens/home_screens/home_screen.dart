@@ -8,6 +8,7 @@ import '../../widgets/song_card.dart';
 import '../../navigations/custom_nav_bar.dart';
 
 class HomeView extends StatefulWidget {
+  static const routeName = '/home';
   const HomeView({super.key});
 
   @override
@@ -27,8 +28,8 @@ class _HomeViewState extends State<HomeView> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.deepOrange.shade800.withOpacity(0.8),
-            Colors.deepOrange.shade200.withOpacity(0.8)
+            Colors.grey.shade700,
+            Colors.black
           ],
         ),
       ),

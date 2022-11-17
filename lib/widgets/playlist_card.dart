@@ -26,7 +26,7 @@ class PlaylistCard extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
-          color: Colors.deepOrangeAccent,
+          color: Colors.grey.shade900,
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: Row(

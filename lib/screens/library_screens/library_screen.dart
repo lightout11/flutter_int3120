@@ -21,10 +21,7 @@ class _LibraryViewState extends State<LibraryView> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Colors.deepOrange.shade800.withOpacity(0.8),
-              Colors.deepOrange.shade200.withOpacity(0.8)
-            ],
+            colors: [Colors.grey.shade700, Colors.black],
           ),
         ),
         child: Scaffold(

@@ -13,8 +13,8 @@ class ProfileView extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.deepOrange.shade800.withOpacity(0.8),
-            Colors.deepOrange.shade200.withOpacity(0.8)
+            Colors.grey.shade700,
+            Colors.black
           ],
         ),
       ),
@@ -32,7 +32,7 @@ class ProfileView extends StatelessWidget {
         children: [
           ProfilePic(),
           SizedBox(height: 20),
-          Text('Nguyễn Đức Tuấn', style: Theme.of(context).textTheme.headlineMedium),
+          //Text('Nguyễn Đức Tuấn', style: Theme.of(context).textTheme.headlineMedium),
           SizedBox(height: 20),
           ProfileMenu(
             text: "My Account",

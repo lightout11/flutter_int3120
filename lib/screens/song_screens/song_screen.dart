@@ -100,15 +100,15 @@ class _BackgroundFilter extends StatelessWidget {
       blendMode: BlendMode.dstOut,
       child: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.deepOrange.shade200,
-              Colors.deepOrange.shade800,
-            ],
-          ),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.grey.shade700,
+            Colors.black
+          ],
         ),
+      ),
       ),
     );
   }

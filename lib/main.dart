@@ -5,7 +5,9 @@ import 'package:learnflutter/navigations/custom_nav_bar.dart';
 import 'package:learnflutter/screens/home_screens/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'models/playlist_model.dart';
+import 'screens/login_success/login_success.dart';
 import 'screens/playlist_screens/playlist_screen.dart';
+import 'screens/sign_in_screens/login.dart';
 import 'screens/song_screens/song_screen.dart';
 
 void main() => runApp(const MyApp());
@@ -52,14 +54,14 @@ class _MyAppState extends State<MyApp> {
                 displayColor: Colors.white,
               ),
         ),
-        home: const CustomNavBar(),
+        initialRoute: SignInScreen.routeName,
         routes: {
+          CustomNavBar.routeName: (context) => const CustomNavBar(),
+          HomeView.routeName:(context) => const HomeView(),
           PlaylistScreen.routeName: (context) => const PlaylistScreen(),
           SongScreen.routeName: (context) => const SongScreen(),
-
-          // GetPage(name: '/', page: () => const HomeView()),
-          // GetPage(name: '/song', page: () => const SongScreen()),
-          // GetPage(name: '/playlist', page: () => const PlaylistScreen())
+          LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
+          SignInScreen.routeName: (context) => SignInScreen(),
         },
       ),
     );

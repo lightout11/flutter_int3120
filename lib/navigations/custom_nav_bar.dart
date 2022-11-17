@@ -6,6 +6,7 @@ import '../screens/profile_screens/profile.dart';
 import '../screens/stream_screens/stream_music.dart';
 
 class CustomNavBar extends StatefulWidget {
+  static const routeName = '/nav';
   const CustomNavBar({
     Key? key,
   }) : super(key: key);
@@ -22,8 +23,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.deepOrange.shade800,
-        unselectedItemColor: Colors.deepOrange.shade300,
+        backgroundColor: Colors.grey.shade900,
+        unselectedItemColor: Colors.grey.shade600,
         selectedItemColor: Colors.white,
          showUnselectedLabels: false,
          showSelectedLabels: false,
