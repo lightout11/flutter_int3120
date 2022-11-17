@@ -25,8 +25,8 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Colors.deepOrange.shade800.withOpacity(0.8),
-            Colors.deepOrange.shade200.withOpacity(0.8)
+            Colors.grey.shade700,
+            Colors.black
           ],
         ),
       ),
