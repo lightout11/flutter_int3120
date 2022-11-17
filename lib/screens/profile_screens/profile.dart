@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'components/profile_menu.dart';
 import 'components/profile_pic.dart';
 
@@ -33,16 +32,18 @@ class ProfileView extends StatelessWidget {
         children: [
           ProfilePic(),
           SizedBox(height: 20),
+          Text('Nguyễn Đức Tuấn', style: Theme.of(context).textTheme.headlineMedium),
+          SizedBox(height: 20),
           ProfileMenu(
             text: "My Account",
             icon: "assets/icons/User Icon.svg",
             press: () => {},
           ),
-          ProfileMenu(
-            text: "Notifications",
-            icon: "assets/icons/Bell.svg",
-            press: () {},
-          ),
+          // ProfileMenu(
+          //   text: "Notifications",
+          //   icon: "assets/icons/Bell.svg",
+          //   press: () {},
+          // ),
           ProfileMenu(
             text: "Settings",
             icon: "assets/icons/Settings.svg",

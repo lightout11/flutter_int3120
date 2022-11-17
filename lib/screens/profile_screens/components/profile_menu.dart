@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 
 class ProfileMenu extends StatelessWidget {
@@ -21,15 +22,21 @@ class ProfileMenu extends StatelessWidget {
           padding: EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: Color(0xFFF5F6F9),
+          backgroundColor: Colors.white,
         ),
         onPressed: press,
         child: Row(
+          
           children: [
-            Icon(Icons.photo),
+            SvgPicture.asset(
+              icon,
+              color: Colors.deepOrange,
+              width: 22,
+            ),
+            //Icon(Icons.photo),
             SizedBox(width: 20),
-            Expanded(child: Text(text)),
-            Icon(Icons.arrow_forward_ios),
+            Expanded(child: Text(text, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),)),
+            Icon(Icons.arrow_forward_ios, color: Colors.grey,),
           ],
         ),
       ),
