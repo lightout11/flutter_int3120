@@ -13,6 +13,7 @@ class Body extends StatelessWidget {
         Image.asset(
           "assets/images/success.png",
           height: SizeConfig.screenHeight * 0.4, //40%
+          width: SizeConfig.screenWidth * 1.1,
         ),
         SizedBox(height: SizeConfig.screenHeight * 0.08),
         Text(
@@ -22,6 +23,7 @@ class Body extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
+          textAlign: TextAlign.center,
         ),
         Spacer(),
         SizedBox(

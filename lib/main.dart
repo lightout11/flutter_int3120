@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learnflutter/firebase_options.dart';
 import 'package:learnflutter/models/song_model.dart';
 import 'package:learnflutter/navigations/custom_nav_bar.dart';
 import 'package:learnflutter/screens/complete_profile_screens/complete_profile.dart';
@@ -13,7 +15,15 @@ import 'screens/playlist_screens/playlist_screen.dart';
 import 'screens/sign_in_screens/sign_in.dart';
 import 'screens/song_screens/song_screen.dart';
 
-void main() => runApp(const MyApp());
+// void main() => runApp(const MyApp());
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyApp());
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
