@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../models/song_model.dart';
 
 class StreamMusicView extends StatefulWidget {
+  static String routeName = "/stream-music";
   const StreamMusicView({super.key});
 
   @override

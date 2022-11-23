@@ -41,7 +41,7 @@ class Song with ChangeNotifier {
     SongItem(
       id: '0',
       title: 'Waiting For You',
-      description: 'Mono',
+      description: 'Mono (feat. Onionn)',
       url:
           'https://data.chiasenhac.com/down2/2276/3/2275150-9f672b16/128/Waiting%20For%20You%20-%20MONO_%20Onionn.mp3',
       coverUrl: 'https://data.chiasenhac.com/data/cover/175/174241.jpg',
@@ -90,11 +90,58 @@ class Song with ChangeNotifier {
       coverUrl:
           'https://data.chiasenhac.com/data/cover/160/159824.jpg',
     ),
+    SongItem(
+      id: '6',
+      title: 'Em Là',
+      description: 'Mono',
+      url:
+          'https://data.chiasenhac.com/down2/2276/3/2275144-a6d75b68/128/Em%20La%20-%20MONO_%20Onionn.mp3',
+      coverUrl:
+          'https://data.chiasenhac.com/data/cover/175/174241.jpg',
+    ),
+    SongItem(
+      id: '7',
+      title: 'I\'m Good (Blue)',
+      description: 'David Guetta',
+      url:
+          'https://data.chiasenhac.com/down2/2274/3/2273537-7649156f/128/I_m%20Good%20Blue_%20-%20David%20Guetta_%20Bebe%20Rexh.mp3',
+      coverUrl:
+          'https://data.chiasenhac.com/data/cover/174/173797.jpg',
+    ),
+    SongItem(
+      id: '8',
+      title: 'Unstoppable',
+      description: 'Sia',
+      url:
+          'https://data2.chiasenhac.com/stream2/1620/3/1619524-39627886/128/Unstoppable%20-%20Sia.mp3',
+      coverUrl:
+          'https://data.chiasenhac.com/data/cover/53/52345.jpg',
+    ),
+    SongItem(
+      id: '9',
+      title: 'Titanium',
+      description: 'David Guetta; Sia',
+      url:
+          'https://data52.chiasenhac.com/downloads/1054/3/1053300-4d74960f/128/Titanium%20-%20David%20Guetta_%20Sia.mp3',
+      coverUrl:
+          'https://data.chiasenhac.com/data/cover/4/3473.jpg',
+    ),
+    SongItem(
+      id: '10',
+      title: 'Wake Me Up',
+      description: 'Avicii, Aloe Blacc',
+      url:
+          'https://data16.chiasenhac.com/downloads/1463/3/1462534-47e1d950/128/Wake%20Me%20Up%20-%20Avicii_%20Aloe%20Blacc.mp3',
+      coverUrl:
+          'https://data.chiasenhac.com/data/cover/39/38156.jpg',
+    ),
+
   ];
 
   List<SongItem> get items {
     return [..._items];
   }
+
 
   List<SongItem> fetchAndSetSongs() {
     CollectionReference songs = FirebaseFirestore.instance.collection('songs');
@@ -117,5 +164,9 @@ class Song with ChangeNotifier {
 
   SongItem findById(String id) {
     return _items.firstWhere((song) => song.id == id);
+  }
+
+  List<SongItem> getTrendingSongs() {
+    return _items.sublist(0, 5);
   }
 }

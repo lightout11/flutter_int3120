@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/screens/library_screens/library_screen.dart';
+import 'package:learnflutter/screens/stream_screens/stream_music.dart';
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({
@@ -22,12 +24,19 @@ class SectionHeader extends StatelessWidget {
               .headline6!
               .copyWith(fontWeight: FontWeight.bold),
         ),
-        Text(
-          action,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: Colors.white),
+        TextButton(
+          onPressed: () {
+            title == 'Trending Music'
+                ? Navigator.of(context).pushNamed(StreamMusicView.routeName)
+                : Navigator.of(context).pushNamed(LibraryView.routeName);
+          },
+          child: Text(
+            action,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(color: Colors.white),
+          ),
         ),
       ],
     );

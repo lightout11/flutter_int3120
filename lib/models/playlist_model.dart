@@ -29,7 +29,7 @@ class Playlist with ChangeNotifier {
   // ignore: prefer_final_fields
   List<PlaylistItem > _items = [
     PlaylistItem (
-      id: '0',
+      id: 'hip-hop-mix',
       title: 'Hip-hop R&B Mix',
       songs: [
         SongItem(
@@ -48,7 +48,7 @@ class Playlist with ChangeNotifier {
       imageUrl: 'https://i1.sndcdn.com/avatars-000345894917-8g35tx-t500x500.jpg',
     ),
     PlaylistItem(
-      id: '1',
+      id: 'us-uk',
       title: 'US-UK Top Songs',
       songs: [
         SongItem(

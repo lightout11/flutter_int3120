@@ -7,8 +7,10 @@ import 'package:learnflutter/models/song_model.dart';
 import 'package:learnflutter/navigations/custom_nav_bar.dart';
 import 'package:learnflutter/screens/complete_profile_screens/complete_profile.dart';
 import 'package:learnflutter/screens/home_screens/home_screen.dart';
+import 'package:learnflutter/screens/library_screens/library_screen.dart';
 import 'package:learnflutter/screens/sign_up_screens/components/sign_up_form.dart';
 import 'package:learnflutter/screens/sign_up_screens/sign_up.dart';
+import 'package:learnflutter/screens/stream_screens/stream_music.dart';
 import 'package:provider/provider.dart';
 import 'models/playlist_model.dart';
 import 'screens/login_success/login_success.dart';
@@ -45,7 +47,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.dark,
         darkTheme: ThemeData(
-          scaffoldBackgroundColor: Colors.deepOrange.shade800,
+          //scaffoldBackgroundColor: Colors.deepOrange.shade800,
           brightness: Brightness.dark,
           // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           //   backgroundColor: Colors.deepOrange,
@@ -68,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                 displayColor: Colors.white,
               ),
         ),
-        initialRoute: CustomNavBar.routeName,
+        initialRoute: HomeView.routeName,
         routes: {
           CustomNavBar.routeName: (context) => const CustomNavBar(),
           HomeView.routeName:(context) => const HomeView(),
@@ -78,6 +80,8 @@ class _MyAppState extends State<MyApp> {
           SignInScreen.routeName: (context) => SignInScreen(),
           SignUpScreen.routeName: (context) => SignUpScreen(),
           CompleteProfileScreen.routeName:(context) => CompleteProfileScreen(),
+          StreamMusicView.routeName:(context) => const StreamMusicView(),
+          LibraryView.routeName:(context) => const LibraryView(),
           //AddSongs.routeName:(context) => AddSongs(),
         },
       ),

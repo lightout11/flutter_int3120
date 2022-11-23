@@ -17,18 +17,16 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
   //List<Song> songs = Song.songs;
   @override
   Widget build(BuildContext context) {
-    final playListId= ModalRoute.of(context)?.settings.arguments as String;
-    final playlists = Provider.of<Playlist>(context, listen: false).findById(playListId);
+    final playListId = ModalRoute.of(context)?.settings.arguments as String;
+    final playlists =
+        Provider.of<Playlist>(context, listen: false).findById(playListId);
     //final songs = playlists.songs;
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            Colors.grey.shade700,
-            Colors.black
-          ],
+          colors: [Colors.grey.shade700, Colors.black],
         ),
       ),
       child: Scaffold(
@@ -48,7 +46,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                 const SizedBox(
                   height: 30,
                 ),
-                const _PlayOrShuffleSwitch(),
+                _PlayOrShuffleSwitch(playlist: playlists),
                 _PlaylistSongs(playlist: playlists),
               ],
             ),
@@ -65,7 +63,7 @@ class _PlaylistSongs extends StatelessWidget {
     required this.playlist,
   }) : super(key: key);
 
-  final PlaylistItem  playlist;
+  final PlaylistItem playlist;
 
   @override
   Widget build(BuildContext context) {
@@ -75,33 +73,36 @@ class _PlaylistSongs extends StatelessWidget {
       itemCount: playlist.songs.length,
       itemBuilder: ((context, index) {
         return ListTile(
-          leading: Text(
-            '${index + 1}',
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium!
-                .copyWith(fontWeight: FontWeight.bold),
-          ),
-          title: Text(
-            playlist.songs[index].title,
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge!
-                .copyWith(fontWeight: FontWeight.bold),
-          ),
-          subtitle: Text('${playlist.songs[index].description}'),
-          trailing: IconButton(onPressed: () {Navigator.of(context).pushNamed(SongScreen.routeName, arguments: playlist.songs[index].id);}, icon:Icon(Icons.play_circle_fill))
-        );
+            leading: Text(
+              '${index + 1}',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(fontWeight: FontWeight.bold),
+            ),
+            title: Text(
+              playlist.songs[index].title,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text('${playlist.songs[index].description}'),
+            trailing: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed( SongScreen.routeName,
+                      arguments: playlist.songs[index].id);
+                },
+                icon: Icon(Icons.play_circle_fill)));
       }),
     );
   }
 }
 
 class _PlayOrShuffleSwitch extends StatefulWidget {
-  const _PlayOrShuffleSwitch({
-    Key? key,
-  }) : super(key: key);
-
+  const _PlayOrShuffleSwitch({Key? key, required this.playlist})
+      : super(key: key);
+final PlaylistItem playlist;
   @override
   State<_PlayOrShuffleSwitch> createState() => _PlayOrShuffleSwitchState();
 }
@@ -116,6 +117,7 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
         setState(() {
           isPlay = !isPlay;
         });
+        Navigator.of(context).pushNamed(SongScreen.routeName,arguments: widget.playlist.songs[0].id);
       },
       child: Container(
         height: 50,
@@ -194,7 +196,7 @@ class PlaylistInformation extends StatelessWidget {
     required this.playlist,
   }) : super(key: key);
 
-  final PlaylistItem  playlist;
+  final PlaylistItem playlist;
 
   @override
   Widget build(BuildContext context) {

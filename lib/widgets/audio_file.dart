@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/song_model.dart';
+import '../screens/song_screens/song_screen.dart';
 
 class AudioFile extends StatefulWidget {
   final AudioPlayer? advancedPlayer;
@@ -99,7 +100,18 @@ class _AudioFileState extends State<AudioFile> {
       icon: const Icon(Icons.skip_next),
       iconSize: 50,
       onPressed: () {
-        widget.advancedPlayer!.setPlaybackRate(1.5);
+        //widget.advancedPlayer!.setPlaybackRate(1.5);
+        widget.advancedPlayer!.pause();
+        setState(() {
+          isPlaying = false;
+        });
+        int i = 0;
+        if (int.parse(widget.song.id!) == 10) {
+          i = 0;
+        } else {
+          i = int.parse(widget.song.id!) + 1;
+        }
+        Navigator.of(context).pushReplacementNamed(SongScreen.routeName,arguments: i.toString());
       },
     );
   }
@@ -109,7 +121,18 @@ class _AudioFileState extends State<AudioFile> {
       icon: const Icon(Icons.skip_previous),
       iconSize: 50,
       onPressed: () {
-        widget.advancedPlayer!.setPlaybackRate(0.5);
+        widget.advancedPlayer!.pause();
+        setState(() {
+          isPlaying = false;
+        });
+        int i = 0;
+        if (int.parse(widget.song.id!) == 0) {
+          i = 10;
+        } else {
+          i = int.parse(widget.song.id!) - 1;
+        }
+        Navigator.of(context).pushReplacementNamed(SongScreen.routeName,arguments: i.toString());
+        // widget.advancedPlayer!.setPlaybackRate(0.5);
       },
     );
   }

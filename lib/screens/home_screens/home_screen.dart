@@ -45,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
           child: Column(
             children: [
               const _DiscoverMusic(),
-              _TrendingMusic(songs: songs.items),
+              _TrendingMusic(songs: songs.getTrendingSongs()),
               _PlaylistMusic(playlists: playlists.items)
             ],
           ),
@@ -188,7 +188,7 @@ class _CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           margin: const EdgeInsets.only(right: 20),
           child: const CircleAvatar(
             backgroundImage: NetworkImage(
-                'https://cdn.nba.com/headshots/nba/latest/1040x760/977.png'),
+                'https://i1.sndcdn.com/artworks-TUzaG9QBMsHu-0-t500x500.jpg'),
           ),
         )
       ],
