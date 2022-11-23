@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/playlist_model.dart';
@@ -18,10 +19,14 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   //List<Song> songs = Song.songs;
   //List<Playlist> playlists = Playlist.playlists;
+
+
   @override
   Widget build(BuildContext context) {
+    //Provider.of<Song>(context).fetchAndSetSongs();
     final playlists = Provider.of<Playlist>(context);
     final songs = Provider.of<Song>(context);
+    //final List<SongItem> songs =[];
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -56,7 +61,7 @@ class _PlaylistMusic extends StatelessWidget {
     required this.playlists,
   }) : super(key: key);
 
-  final List<PlaylistItem> playlists;
+  final List<PlaylistItem > playlists;
 
   @override
   Widget build(BuildContext context) {

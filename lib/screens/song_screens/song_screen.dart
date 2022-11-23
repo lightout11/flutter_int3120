@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../../models/song_model.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-
 class SongScreen extends StatefulWidget {
   const SongScreen({super.key});
 
@@ -18,7 +17,8 @@ class SongScreen extends StatefulWidget {
   State<SongScreen> createState() => _SongScreenState();
 }
 
-class _SongScreenState extends State<SongScreen> with SingleTickerProviderStateMixin {
+class _SongScreenState extends State<SongScreen>
+    with SingleTickerProviderStateMixin {
   // Song song = Get.arguments ?? Song.songs[0];
   AudioPlayer? advancedPlayer;
 
@@ -29,9 +29,15 @@ class _SongScreenState extends State<SongScreen> with SingleTickerProviderStateM
     super.initState();
     advancedPlayer = AudioPlayer();
   }
+
+  // void didChangeDependencies() {
+    
+  //   super.didChangeDependencies();
+  // }
+
   @override
   Widget build(BuildContext context) {
-    final songId= ModalRoute.of(context)?.settings.arguments as String;
+    final songId = ModalRoute.of(context)?.settings.arguments as String;
     final song = Provider.of<Song>(context, listen: false).findById(songId);
     return Scaffold(
         appBar: AppBar(
@@ -48,24 +54,34 @@ class _SongScreenState extends State<SongScreen> with SingleTickerProviderStateM
             ),
             const _BackgroundFilter(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     song.title,
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.white, fontWeight: FontWeight.bold,),
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     song.description,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.white),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(color: Colors.white),
                   ),
-                  const SizedBox(height: 30,),
-                  AudioFile(advancedPlayer: advancedPlayer!,song: song),
-                  
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  AudioFile(advancedPlayer: advancedPlayer!, song: song),
                 ],
               ),
             )
@@ -100,15 +116,12 @@ class _BackgroundFilter extends StatelessWidget {
       blendMode: BlendMode.dstOut,
       child: Container(
         decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Colors.grey.shade700,
-            Colors.black
-          ],
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.grey.shade700, Colors.black],
+          ),
         ),
-      ),
       ),
     );
   }

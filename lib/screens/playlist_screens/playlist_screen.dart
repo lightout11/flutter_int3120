@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/playlist_model.dart';
+import '../song_screens/song_screen.dart';
 
 class PlaylistScreen extends StatefulWidget {
   const PlaylistScreen({super.key});
@@ -64,7 +65,7 @@ class _PlaylistSongs extends StatelessWidget {
     required this.playlist,
   }) : super(key: key);
 
-  final PlaylistItem playlist;
+  final PlaylistItem  playlist;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +90,7 @@ class _PlaylistSongs extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
           subtitle: Text('${playlist.songs[index].description}'),
-          trailing: const Icon(Icons.more_vert, color: Colors.white,),
+          trailing: IconButton(onPressed: () {Navigator.of(context).pushNamed(SongScreen.routeName, arguments: playlist.songs[index].id);}, icon:Icon(Icons.play_circle_fill))
         );
       }),
     );
@@ -193,7 +194,7 @@ class PlaylistInformation extends StatelessWidget {
     required this.playlist,
   }) : super(key: key);
 
-  final PlaylistItem playlist;
+  final PlaylistItem  playlist;
 
   @override
   Widget build(BuildContext context) {

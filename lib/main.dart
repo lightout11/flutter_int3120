@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learnflutter/add_songs.dart';
 import 'package:learnflutter/firebase_options.dart';
 import 'package:learnflutter/models/song_model.dart';
 import 'package:learnflutter/navigations/custom_nav_bar.dart';
@@ -67,7 +68,7 @@ class _MyAppState extends State<MyApp> {
                 displayColor: Colors.white,
               ),
         ),
-        initialRoute: SignInScreen.routeName,
+        initialRoute: CustomNavBar.routeName,
         routes: {
           CustomNavBar.routeName: (context) => const CustomNavBar(),
           HomeView.routeName:(context) => const HomeView(),
@@ -77,6 +78,7 @@ class _MyAppState extends State<MyApp> {
           SignInScreen.routeName: (context) => SignInScreen(),
           SignUpScreen.routeName: (context) => SignUpScreen(),
           CompleteProfileScreen.routeName:(context) => CompleteProfileScreen(),
+          //AddSongs.routeName:(context) => AddSongs(),
         },
       ),
     );

@@ -7,7 +7,7 @@ class PlaylistItem {
   final List<SongItem> songs;
   final String imageUrl;
 
-  PlaylistItem({
+  PlaylistItem ({
     required this.id,
     required this.title,
     required this.songs,
@@ -27,8 +27,8 @@ class Playlist with ChangeNotifier {
   // });
 
   // ignore: prefer_final_fields
-  List<PlaylistItem> _items = [
-    PlaylistItem(
+  List<PlaylistItem > _items = [
+    PlaylistItem (
       id: '0',
       title: 'Hip-hop R&B Mix',
       songs: [
@@ -75,7 +75,7 @@ class Playlist with ChangeNotifier {
     ),
   ];
 
-  List<PlaylistItem> get items {
+  List<PlaylistItem > get items {
     return [..._items];
   }
 
