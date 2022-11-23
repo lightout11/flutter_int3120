@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
     Key? key,
@@ -16,17 +15,16 @@ class ProfileMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           backgroundColor: Colors.grey.shade200,
         ),
         onPressed: press,
         child: Row(
-          
           children: [
             SvgPicture.asset(
               icon,
@@ -34,9 +32,17 @@ class ProfileMenu extends StatelessWidget {
               width: 22,
             ),
             //Icon(Icons.photo),
-            SizedBox(width: 20),
-            Expanded(child: Text(text, style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),)),
-            Icon(Icons.arrow_forward_ios, color: Colors.grey,),
+            const SizedBox(width: 20),
+            Expanded(
+                child: Text(
+              text,
+              style: const TextStyle(
+                  color: Colors.grey, fontWeight: FontWeight.bold),
+            )),
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.grey,
+            ),
           ],
         ),
       ),

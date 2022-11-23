@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../sign_config.dart';
 
-
 class DefaultButton extends StatelessWidget {
   const DefaultButton({
     Key? key,
@@ -19,9 +18,9 @@ class DefaultButton extends StatelessWidget {
       height: getProportionateScreenHeight(56),
       child: TextButton(
         style: TextButton.styleFrom(
+          foregroundColor: Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          primary: Colors.white,
           backgroundColor: Colors.deepOrange,
         ),
         onPressed: press as void Function()?,

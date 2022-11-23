@@ -1,14 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:learnflutter/add_songs.dart';
 import 'package:learnflutter/firebase_options.dart';
 import 'package:learnflutter/models/song_model.dart';
 import 'package:learnflutter/navigations/custom_nav_bar.dart';
 import 'package:learnflutter/screens/complete_profile_screens/complete_profile.dart';
 import 'package:learnflutter/screens/home_screens/home_screen.dart';
 import 'package:learnflutter/screens/library_screens/library_screen.dart';
-import 'package:learnflutter/screens/sign_up_screens/components/sign_up_form.dart';
 import 'package:learnflutter/screens/sign_up_screens/sign_up.dart';
 import 'package:learnflutter/screens/stream_screens/stream_music.dart';
 import 'package:provider/provider.dart';
@@ -73,15 +70,16 @@ class _MyAppState extends State<MyApp> {
         initialRoute: HomeView.routeName,
         routes: {
           CustomNavBar.routeName: (context) => const CustomNavBar(),
-          HomeView.routeName:(context) => const HomeView(),
+          HomeView.routeName: (context) => const HomeView(),
           PlaylistScreen.routeName: (context) => const PlaylistScreen(),
           SongScreen.routeName: (context) => const SongScreen(),
-          LoginSuccessScreen.routeName: (context) => LoginSuccessScreen(),
-          SignInScreen.routeName: (context) => SignInScreen(),
-          SignUpScreen.routeName: (context) => SignUpScreen(),
-          CompleteProfileScreen.routeName:(context) => CompleteProfileScreen(),
-          StreamMusicView.routeName:(context) => const StreamMusicView(),
-          LibraryView.routeName:(context) => const LibraryView(),
+          LoginSuccessScreen.routeName: (context) => const LoginSuccessScreen(),
+          SignInScreen.routeName: (context) => const SignInScreen(),
+          SignUpScreen.routeName: (context) => const SignUpScreen(),
+          CompleteProfileScreen.routeName: (context) =>
+              const CompleteProfileScreen(),
+          StreamMusicView.routeName: (context) => const StreamMusicView(),
+          LibraryView.routeName: (context) => const LibraryView(),
           //AddSongs.routeName:(context) => AddSongs(),
         },
       ),

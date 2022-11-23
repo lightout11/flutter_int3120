@@ -4,6 +4,8 @@ import 'components/body.dart';
 
 class LoginSuccessScreen extends StatelessWidget {
   static String routeName = "/login_success";
+
+  const LoginSuccessScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +17,6 @@ class LoginSuccessScreen extends StatelessWidget {
           colors: [
             Colors.grey.shade700,
             Colors.black,
-            
           ],
         ),
       ),
@@ -25,10 +26,10 @@ class LoginSuccessScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
-          leading: SizedBox(),
+          leading: const SizedBox(),
           //title: Text("Login Success",),
         ),
-        body: Body(),
+        body: const Body(),
       ),
     );
   }

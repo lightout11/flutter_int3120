@@ -1,6 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../models/song_model.dart';
 import '../screens/song_screens/song_screen.dart';
@@ -41,14 +40,14 @@ class _AudioFileState extends State<AudioFile> {
         _duration = d;
       });
     });
-    widget.advancedPlayer!.onAudioPositionChanged.listen((p) {
+    widget.advancedPlayer!.onPositionChanged.listen((p) {
       setState(() {
         _position = p;
       });
     });
 
-    widget.advancedPlayer!.setUrl(widget.song.url);
-    widget.advancedPlayer!.onPlayerCompletion.listen((event) {
+    widget.advancedPlayer!.setSourceUrl(widget.song.url);
+    widget.advancedPlayer!.onPlayerComplete.listen((event) {
       setState(() {
         _position = const Duration(seconds: 0);
         if (isRepeat == true) {
@@ -81,7 +80,7 @@ class _AudioFileState extends State<AudioFile> {
       iconSize: 70,
       onPressed: () {
         if (isPlaying == false) {
-          widget.advancedPlayer!.play(widget.song.url);
+          widget.advancedPlayer!.play(UrlSource(widget.song.url));
           setState(() {
             isPlaying = true;
           });
@@ -111,7 +110,8 @@ class _AudioFileState extends State<AudioFile> {
         } else {
           i = int.parse(widget.song.id!) + 1;
         }
-        Navigator.of(context).pushReplacementNamed(SongScreen.routeName,arguments: i.toString());
+        Navigator.of(context).pushReplacementNamed(SongScreen.routeName,
+            arguments: i.toString());
       },
     );
   }
@@ -131,7 +131,8 @@ class _AudioFileState extends State<AudioFile> {
         } else {
           i = int.parse(widget.song.id!) - 1;
         }
-        Navigator.of(context).pushReplacementNamed(SongScreen.routeName,arguments: i.toString());
+        Navigator.of(context).pushReplacementNamed(SongScreen.routeName,
+            arguments: i.toString());
         // widget.advancedPlayer!.setPlaybackRate(0.5);
       },
     );
@@ -152,13 +153,13 @@ class _AudioFileState extends State<AudioFile> {
       color: color,
       onPressed: () {
         if (isRepeat == false) {
-          widget.advancedPlayer!.setReleaseMode(ReleaseMode.LOOP);
+          widget.advancedPlayer!.setReleaseMode(ReleaseMode.loop);
           setState(() {
             isRepeat = true;
             color = Colors.orange;
           });
         } else if (isRepeat == true) {
-          widget.advancedPlayer!.setReleaseMode(ReleaseMode.RELEASE);
+          widget.advancedPlayer!.setReleaseMode(ReleaseMode.release);
           color = Colors.white;
           isRepeat = false;
         }
@@ -209,7 +210,6 @@ class _AudioFileState extends State<AudioFile> {
 
   @override
   Widget build(BuildContext context) {
-    final songs = Provider.of<Song>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [

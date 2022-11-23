@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:learnflutter/screens/song_screens/song_screen.dart';
 
 import '../models/song_model.dart';
@@ -16,10 +15,10 @@ class SongCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(SongScreen.routeName, arguments: song.id);
+        Navigator.of(context)
+            .pushNamed(SongScreen.routeName, arguments: song.id);
       },
       child: Container(
-        
         margin: const EdgeInsets.only(right: 10),
         child: Stack(
           alignment: Alignment.bottomCenter,
@@ -53,17 +52,19 @@ class SongCard extends StatelessWidget {
                       children: [
                         Text(
                           song.title,
-                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                color: Colors.deepOrange,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    color: Colors.deepOrange,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                         ),
                         Text(
                           song.description,
-                          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall!.copyWith(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                         ),
                       ],
                     ),

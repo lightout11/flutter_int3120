@@ -87,13 +87,14 @@ class _PlaylistSongs extends StatelessWidget {
                   .bodyLarge!
                   .copyWith(fontWeight: FontWeight.bold),
             ),
-            subtitle: Text('${playlist.songs[index].description}'),
+            subtitle: Text(playlist.songs[index].description),
             trailing: IconButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed( SongScreen.routeName,
+                  Navigator.of(context).pushReplacementNamed(
+                      SongScreen.routeName,
                       arguments: playlist.songs[index].id);
                 },
-                icon: Icon(Icons.play_circle_fill)));
+                icon: const Icon(Icons.play_circle_fill)));
       }),
     );
   }
@@ -102,7 +103,7 @@ class _PlaylistSongs extends StatelessWidget {
 class _PlayOrShuffleSwitch extends StatefulWidget {
   const _PlayOrShuffleSwitch({Key? key, required this.playlist})
       : super(key: key);
-final PlaylistItem playlist;
+  final PlaylistItem playlist;
   @override
   State<_PlayOrShuffleSwitch> createState() => _PlayOrShuffleSwitchState();
 }
@@ -117,7 +118,8 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
         setState(() {
           isPlay = !isPlay;
         });
-        Navigator.of(context).pushNamed(SongScreen.routeName,arguments: widget.playlist.songs[0].id);
+        Navigator.of(context).pushNamed(SongScreen.routeName,
+            arguments: widget.playlist.songs[0].id);
       },
       child: Container(
         height: 50,

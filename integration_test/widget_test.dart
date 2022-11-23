@@ -6,10 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 import 'package:learnflutter/main.dart';
 
-import '../lib/screens/home_screens/home_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:learnflutter/main.dart' as app;
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -19,44 +17,43 @@ void main() async {
   group('Widget test', () {
     testWidgets('tap on the search bar', (WidgetTester tester) async {
       //app.main();
-      await tester.pumpWidget(MyApp());
+      await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
-      await tester.pump(Duration(seconds: 2));
-      final Finder searchField = find.byKey(ValueKey('search'));
+      await tester.pump(const Duration(seconds: 2));
+      final Finder searchField = find.byKey(const ValueKey('search'));
 
       expect(searchField, findsOneWidget);
 
       await tester.enterText(searchField, "testSearch");
-      await tester.pump(Duration(seconds: 2));
+      await tester.pump(const Duration(seconds: 2));
 
       expect(find.text("testSearch"), findsOneWidget);
-      
     });
 
     testWidgets('tap on song card', (WidgetTester tester) async {
       //app.main();
-      await tester.pumpWidget(MyApp());
+      await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
-      await tester.pump(Duration(seconds: 2));
+      await tester.pump(const Duration(seconds: 2));
 
-      final Finder songCard = find.byKey(ValueKey('songCard'));
+      final Finder songCard = find.byKey(const ValueKey('songCard'));
 
       await tester.tap(songCard);
 
-      await tester.pump(Duration(seconds: 2));
+      await tester.pump(const Duration(seconds: 2));
     });
 
     testWidgets('tap on playlist card', (WidgetTester tester) async {
       //app.main();
-      await tester.pumpWidget(MyApp());
+      await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
-      await tester.pump(Duration(seconds: 2));
+      await tester.pump(const Duration(seconds: 2));
 
-      final Finder playlistCard = find.byKey(ValueKey('playlistCard'));
+      final Finder playlistCard = find.byKey(const ValueKey('playlistCard'));
 
       await tester.tap(playlistCard);
 
-      await tester.pump(Duration(seconds: 2));
+      await tester.pump(const Duration(seconds: 2));
     });
   });
 }

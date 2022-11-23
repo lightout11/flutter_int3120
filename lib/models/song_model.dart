@@ -60,8 +60,7 @@ class Song with ChangeNotifier {
       description: 'Taylor Swift',
       url:
           'https://data51.chiasenhac.com/downloads/1004/3/1003977-57420886/128/You%20Belong%20With%20Me%20-%20Taylor%20Swift.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/artist_avatar/2/1555.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/artist_avatar/2/1555.jpg',
     ),
     SongItem(
       id: '3',
@@ -69,8 +68,7 @@ class Song with ChangeNotifier {
       description: 'Taylor Swift',
       url:
           'https://data.chiasenhac.com/down2/2276/3/2275197-b457c9fd/128/Anti-Hero%20-%20Taylor%20Swift.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/cover/175/174261.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/cover/175/174261.jpg',
     ),
     SongItem(
       id: '4',
@@ -78,8 +76,7 @@ class Song with ChangeNotifier {
       description: 'BlackPink',
       url:
           'https://data.chiasenhac.com/down2/2275/3/2274502-c159de5b/128/Typa%20Girl%20-%20BlackPink.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/cover/175/174159.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/cover/175/174159.jpg',
     ),
     SongItem(
       id: '5',
@@ -87,8 +84,7 @@ class Song with ChangeNotifier {
       description: 'Hayd',
       url:
           'https://data.chiasenhac.com/down2/2238/3/2237203-0d75d1b8/128/Head%20In%20the%20Clouds%20-%20Hayd.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/cover/160/159824.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/cover/160/159824.jpg',
     ),
     SongItem(
       id: '6',
@@ -96,8 +92,7 @@ class Song with ChangeNotifier {
       description: 'Mono',
       url:
           'https://data.chiasenhac.com/down2/2276/3/2275144-a6d75b68/128/Em%20La%20-%20MONO_%20Onionn.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/cover/175/174241.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/cover/175/174241.jpg',
     ),
     SongItem(
       id: '7',
@@ -105,8 +100,7 @@ class Song with ChangeNotifier {
       description: 'David Guetta',
       url:
           'https://data.chiasenhac.com/down2/2274/3/2273537-7649156f/128/I_m%20Good%20Blue_%20-%20David%20Guetta_%20Bebe%20Rexh.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/cover/174/173797.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/cover/174/173797.jpg',
     ),
     SongItem(
       id: '8',
@@ -114,8 +108,7 @@ class Song with ChangeNotifier {
       description: 'Sia',
       url:
           'https://data2.chiasenhac.com/stream2/1620/3/1619524-39627886/128/Unstoppable%20-%20Sia.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/cover/53/52345.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/cover/53/52345.jpg',
     ),
     SongItem(
       id: '9',
@@ -123,8 +116,7 @@ class Song with ChangeNotifier {
       description: 'David Guetta; Sia',
       url:
           'https://data52.chiasenhac.com/downloads/1054/3/1053300-4d74960f/128/Titanium%20-%20David%20Guetta_%20Sia.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/cover/4/3473.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/cover/4/3473.jpg',
     ),
     SongItem(
       id: '10',
@@ -132,32 +124,29 @@ class Song with ChangeNotifier {
       description: 'Avicii, Aloe Blacc',
       url:
           'https://data16.chiasenhac.com/downloads/1463/3/1462534-47e1d950/128/Wake%20Me%20Up%20-%20Avicii_%20Aloe%20Blacc.mp3',
-      coverUrl:
-          'https://data.chiasenhac.com/data/cover/39/38156.jpg',
+      coverUrl: 'https://data.chiasenhac.com/data/cover/39/38156.jpg',
     ),
-
   ];
 
   List<SongItem> get items {
     return [..._items];
   }
 
-
   List<SongItem> fetchAndSetSongs() {
     CollectionReference songs = FirebaseFirestore.instance.collection('songs');
     songs.snapshots().listen((snapshot) {
-      final List<SongItem> _loadedItems = [];
-      snapshot.docs.forEach((document) {
-        _loadedItems.add(SongItem(
+      final List<SongItem> loadedItems = [];
+      for (var document in snapshot.docs) {
+        loadedItems.add(SongItem(
           id: document.id,
           title: document['title'],
           description: document['description'],
           url: document['url'],
           coverUrl: document['coverUrl'],
         ));
-        _items = _loadedItems;
+        _items = loadedItems;
         //notifyListeners();
-      });
+      }
     });
     return _items;
   }

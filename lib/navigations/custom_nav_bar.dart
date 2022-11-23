@@ -26,8 +26,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
         backgroundColor: Colors.grey.shade900,
         unselectedItemColor: Colors.grey.shade600,
         selectedItemColor: Colors.white,
-         showUnselectedLabels: false,
-         showSelectedLabels: false,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
         currentIndex: selectedIndex,
         items: const [
           BottomNavigationBarItem(
@@ -48,29 +48,28 @@ class _CustomNavBarState extends State<CustomNavBar> {
           ),
         ],
         onTap: (int index) {
-            this.onTapHandler(index);
-          },
+          onTapHandler(index);
+        },
       ),
       body: getBody(),
     );
   }
-  
-   Widget getBody() {
-    if(selectedIndex == 0) {
+
+  Widget getBody() {
+    if (selectedIndex == 0) {
       return const HomeView();
-    } else if(selectedIndex== 1) {
+    } else if (selectedIndex == 1) {
       return const StreamMusicView();
-    } else if(selectedIndex == 2) {
+    } else if (selectedIndex == 2) {
       return const LibraryView();
     } else {
       return const ProfileView();
     }
   }
 
-  void onTapHandler(int index)  {
+  void onTapHandler(int index) {
     setState(() {
       selectedIndex = index;
     });
   }
-
 }

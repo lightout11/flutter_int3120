@@ -12,10 +12,7 @@ class ProfileView extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            Colors.grey.shade700,
-            Colors.black
-          ],
+          colors: [Colors.grey.shade700, Colors.black],
         ),
       ),
       child: Scaffold(
@@ -27,41 +24,41 @@ class ProfileView extends StatelessWidget {
           title: const Text('Profile'),
         ),
         body: SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
-      child: Column(
-        children: [
-          ProfilePic(),
-          SizedBox(height: 20),
-          //Text('Nguyễn Đức Tuấn', style: Theme.of(context).textTheme.headlineMedium),
-          SizedBox(height: 20),
-          ProfileMenu(
-            text: "My Account",
-            icon: "assets/icons/User Icon.svg",
-            press: () => {},
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Column(
+            children: [
+              const ProfilePic(),
+              const SizedBox(height: 20),
+              //Text('Nguyễn Đức Tuấn', style: Theme.of(context).textTheme.headlineMedium),
+              const SizedBox(height: 20),
+              ProfileMenu(
+                text: "My Account",
+                icon: "assets/icons/User Icon.svg",
+                press: () => {},
+              ),
+              // ProfileMenu(
+              //   text: "Notifications",
+              //   icon: "assets/icons/Bell.svg",
+              //   press: () {},
+              // ),
+              ProfileMenu(
+                text: "Settings",
+                icon: "assets/icons/Settings.svg",
+                press: () {},
+              ),
+              ProfileMenu(
+                text: "Help Center",
+                icon: "assets/icons/Question mark.svg",
+                press: () {},
+              ),
+              ProfileMenu(
+                text: "Log Out",
+                icon: "assets/icons/Log out.svg",
+                press: () {},
+              ),
+            ],
           ),
-          // ProfileMenu(
-          //   text: "Notifications",
-          //   icon: "assets/icons/Bell.svg",
-          //   press: () {},
-          // ),
-          ProfileMenu(
-            text: "Settings",
-            icon: "assets/icons/Settings.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Help Center",
-            icon: "assets/icons/Question mark.svg",
-            press: () {},
-          ),
-          ProfileMenu(
-            text: "Log Out",
-            icon: "assets/icons/Log out.svg",
-            press: () {},
-          ),
-        ],
-      ),
-    ),
+        ),
       ),
     );
   }

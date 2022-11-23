@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:learnflutter/screens/playlist_screens/playlist_screen.dart';
-import 'package:provider/provider.dart';
 
-import '../models/playlist_model.dart' ;
+import '../models/playlist_model.dart';
 
 class PlaylistCard extends StatelessWidget {
   final PlaylistItem playlist;
@@ -19,7 +17,8 @@ class PlaylistCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(PlaylistScreen.routeName, arguments: playlist.id);
+        Navigator.of(context)
+            .pushNamed(PlaylistScreen.routeName, arguments: playlist.id);
       },
       child: Container(
         height: 75,

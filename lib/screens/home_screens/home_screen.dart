@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/playlist_model.dart';
@@ -6,7 +5,6 @@ import '../../models/song_model.dart';
 import '../../widgets/playlist_card.dart';
 import '../../widgets/section_header.dart';
 import '../../widgets/song_card.dart';
-import '../../navigations/custom_nav_bar.dart';
 
 class HomeView extends StatefulWidget {
   static const routeName = '/home';
@@ -20,7 +18,6 @@ class _HomeViewState extends State<HomeView> {
   //List<Song> songs = Song.songs;
   //List<Playlist> playlists = Playlist.playlists;
 
-
   @override
   Widget build(BuildContext context) {
     //Provider.of<Song>(context).fetchAndSetSongs();
@@ -32,10 +29,7 @@ class _HomeViewState extends State<HomeView> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            Colors.grey.shade700,
-            Colors.black
-          ],
+          colors: [Colors.grey.shade700, Colors.black],
         ),
       ),
       child: Scaffold(
@@ -61,14 +55,14 @@ class _PlaylistMusic extends StatelessWidget {
     required this.playlists,
   }) : super(key: key);
 
-  final List<PlaylistItem > playlists;
+  final List<PlaylistItem> playlists;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
-        key: ValueKey('playlistCard'),
+        key: const ValueKey('playlistCard'),
         children: [
           const SectionHeader(title: 'Playlists'),
           ListView.builder(
@@ -108,7 +102,7 @@ class _TrendingMusic extends StatelessWidget {
             height: 20,
           ),
           SizedBox(
-            key: ValueKey("songCard"),
+            key: const ValueKey("songCard"),
             height: MediaQuery.of(context).size.height * 0.27,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -148,7 +142,7 @@ class _DiscoverMusic extends StatelessWidget {
             height: 20,
           ),
           TextFormField(
-            key: ValueKey('search'),
+            key: const ValueKey('search'),
             decoration: InputDecoration(
                 isDense: true,
                 filled: true,
@@ -169,8 +163,6 @@ class _DiscoverMusic extends StatelessWidget {
     );
   }
 }
-
-
 
 class _CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   const _CustomAppBar({

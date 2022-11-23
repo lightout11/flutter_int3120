@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:learnflutter/navigations/custom_nav_bar.dart';
-import 'package:learnflutter/screens/home_screens/home_screen.dart';
 import '../../../sign_config.dart';
 import '../../../widgets/profile/default_button.dart';
 
 class Body extends StatelessWidget {
+  const Body({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +26,7 @@ class Body extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        Spacer(),
+        const Spacer(),
         SizedBox(
           width: SizeConfig.screenWidth * 0.6,
           child: DefaultButton(
@@ -35,7 +36,7 @@ class Body extends StatelessWidget {
             },
           ),
         ),
-        Spacer(),
+        const Spacer(),
       ],
     );
   }

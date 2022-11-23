@@ -1,6 +1,5 @@
 //import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:learnflutter/widgets/audio_file.dart';
 import 'package:provider/provider.dart';
 //import 'package:just_audio/just_audio.dart';
@@ -31,7 +30,7 @@ class _SongScreenState extends State<SongScreen>
   }
 
   // void didChangeDependencies() {
-    
+
   //   super.didChangeDependencies();
   // }
 

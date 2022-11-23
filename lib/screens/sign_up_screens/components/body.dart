@@ -4,7 +4,10 @@ import 'package:learnflutter/screens/sign_up_screens/components/sign_up_form.dar
 import '../../../constants.dart';
 import '../../../sign_config.dart';
 import '../../../widgets/profile/social_card.dart';
+
 class Body extends StatelessWidget {
+  const Body({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,13 +20,16 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: SizeConfig.screenHeight * 0.04), // 4%
-                Text("Register Account", style: headingStyle.copyWith(color: Colors.white),),
                 Text(
+                  "Register Account",
+                  style: headingStyle.copyWith(color: Colors.white),
+                ),
+                const Text(
                   "Complete your details or continue \nwith social media",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
-                SignUpForm(),
+                const SignUpForm(),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
