@@ -26,9 +26,11 @@ class SectionHeader extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            title == 'Trending Music'
-                ? Navigator.of(context).pushNamed(StreamMusicView.routeName)
-                : Navigator.of(context).pushNamed(LibraryView.routeName);
+            if (title == 'Trending Music' || title == 'Top Songs For You') {
+              Navigator.of(context).pushNamed(StreamMusicView.routeName);
+            } else {
+              Navigator.of(context).pushNamed(LibraryView.routeName);
+            }
           },
           child: Text(
             action,

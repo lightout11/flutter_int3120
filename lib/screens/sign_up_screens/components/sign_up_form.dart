@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learnflutter/screens/login_success/login_success.dart';
 
@@ -7,13 +8,16 @@ import '../../../widgets/profile/default_button.dart';
 import '../../../widgets/profile/form_error.dart';
 import '../../complete_profile_screens/complete_profile.dart';
 
-
 class SignUpForm extends StatefulWidget {
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -36,6 +40,13 @@ class _SignUpFormState extends State<SignUpForm> {
   }
 
   @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
@@ -45,7 +56,7 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          buildConformPassFormField(),
+          buildConfirmPassFormField(),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
@@ -54,8 +65,9 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 // if all are valid then go to success screen
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                signUp();
+                //Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                //Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
           ),
@@ -64,8 +76,9 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
-  TextFormField buildConformPassFormField() {
+  TextFormField buildConfirmPassFormField() {
     return TextFormField(
+      controller: _confirmPasswordController,
       obscureText: true,
       onSaved: (newValue) => conform_password = newValue,
       onChanged: (value) {
@@ -99,6 +112,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: _passwordController,
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
@@ -132,6 +146,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
@@ -161,5 +176,22 @@ class _SignUpFormState extends State<SignUpForm> {
         //suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
+  }
+
+  Future signUp() async {
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim());
+    }
+  }
+
+  bool passwordConfirmed() {
+    if (_passwordController.text.trim() ==
+        _confirmPasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
