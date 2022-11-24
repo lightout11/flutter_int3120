@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/screens/sign_in_screens/sign_in.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'components/profile_menu.dart';
 import 'components/profile_pic.dart';
 
@@ -52,17 +54,28 @@ class ProfileView extends StatelessWidget {
           ProfileMenu(
             text: "Help Center",
             icon: "assets/icons/Question mark.svg",
-            press: () {},
+            press: _launchGitHub,
           ),
           ProfileMenu(
             text: "Log Out",
             icon: "assets/icons/Log out.svg",
-            press: () {},
+            press: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(SignInScreen.routeName, (route) => false);
+            },
           ),
         ],
       ),
     ),
       ),
     );
+  }
+
+  _launchGitHub() async {
+    const url = 'https://github.com/lightout11/learnflutter';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
   }
 }

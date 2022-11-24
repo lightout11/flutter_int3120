@@ -46,14 +46,18 @@ class _HomeViewState extends State<HomeView> {
             children: [
               const _DiscoverMusic(),
               _TrendingMusic(songs: songs.getTrendingSongs()),
-              _PlaylistMusic(playlists: playlists.items)
+              _TopSongForYou(songs: songs.getTopSongs()),
+              _PlaylistMusic(playlists: playlists.getTopPlaylist())
             ],
           ),
         ),
       ),
     );
   }
+  
 }
+
+
 
 class _PlaylistMusic extends StatelessWidget {
   const _PlaylistMusic({
@@ -103,6 +107,44 @@ class _TrendingMusic extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(right: 20.0),
             child: SectionHeader(title: 'Trending Music'),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+            key: ValueKey("songCard"),
+            height: MediaQuery.of(context).size.height * 0.27,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: songs.length,
+              itemBuilder: (context, index) {
+                return SongCard(song: songs[index]);
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _TopSongForYou extends StatelessWidget {
+  const _TopSongForYou({
+    Key? key,
+    required this.songs,
+  }) : super(key: key);
+
+  final List<SongItem> songs;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, top: 20, bottom: 20),
+      child: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: SectionHeader(title: 'Top Songs For You'),
           ),
           const SizedBox(
             height: 20,

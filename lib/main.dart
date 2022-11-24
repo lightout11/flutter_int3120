@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                 displayColor: Colors.white,
               ),
         ),
-        initialRoute: HomeView.routeName,
+        initialRoute: CustomNavBar.routeName,
         routes: {
           CustomNavBar.routeName: (context) => const CustomNavBar(),
           HomeView.routeName:(context) => const HomeView(),
