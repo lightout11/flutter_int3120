@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:learnflutter/main_page.dart';
 import 'package:learnflutter/screens/sign_in_screens/sign_in.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'components/profile_menu.dart';
@@ -60,7 +62,8 @@ class ProfileView extends StatelessWidget {
             text: "Log Out",
             icon: "assets/icons/Log out.svg",
             press: () {
-              Navigator.of(context).pushNamedAndRemoveUntil(SignInScreen.routeName, (route) => false);
+              FirebaseAuth.instance.signOut();
+              Navigator.of(context).pushNamedAndRemoveUntil(MainPage.routeName, (route) => false);
             },
           ),
         ],

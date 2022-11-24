@@ -120,7 +120,7 @@ class Song with ChangeNotifier {
     SongItem(
       id: '9',
       title: 'Titanium',
-      description: 'David Guetta; Sia',
+      description: 'David Guetta, Sia',
       url:
           'https://data52.chiasenhac.com/downloads/1054/4/1053300-4d74960f/128/Titanium%20-%20David%20Guetta_%20Sia.mp3',
       coverUrl:

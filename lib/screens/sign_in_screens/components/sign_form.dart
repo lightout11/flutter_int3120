@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -13,6 +14,10 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
+  //controller
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -76,7 +81,8 @@ class _SignFormState extends State<SignForm> {
                 _formKey.currentState!.save();
                 // if all are valid then go to success screen
                 KeyboardUtil.hideKeyboard(context);
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+                signIn();
+                //Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
           ),
@@ -87,6 +93,7 @@ class _SignFormState extends State<SignForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: _passwordController,
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
@@ -120,6 +127,7 @@ class _SignFormState extends State<SignForm> {
 
   Widget buildEmailFormField() {
     return TextFormField(
+      controller: _emailController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
@@ -149,5 +157,19 @@ class _SignFormState extends State<SignForm> {
         //suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
     );
+  }
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+  }
+  
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 }
