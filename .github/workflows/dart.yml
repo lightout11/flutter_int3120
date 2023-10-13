@@ -19,7 +19,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           java-version: '11'
-          flutter-version: '2.12.0'
+          flutter-version: 'any'
       - run: flutter --version
       - name: Install dependencies
         run: flutter pub get
