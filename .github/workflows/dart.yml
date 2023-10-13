@@ -22,6 +22,8 @@ jobs:
       - run: flutter --version
       - name: Install dependencies
         run: flutter pub get
+      - name: Update provider
+        run: flutter pub add provider:^6.0.5
       # - name: Run tests
       #   run: flutter test
       - name: Build apk
