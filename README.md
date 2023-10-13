@@ -3,9 +3,9 @@
 # Project name: SoundCloud (Remastered Edition)
 
 ## Member of group:
-* Nguyen Vinh Quang
+* Nguyen Duc Tuan (Team lead)
 
-* Nguyen Duc Tuan
+* Nguyen Vinh Quang
 
 * Nguyen Hong Quan
 
